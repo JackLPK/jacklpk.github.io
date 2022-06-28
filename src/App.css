@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+  /* outline: hsla(350, 100%, 88%, 0.4) solid 1px; */
+}
+
+:root {
+  font-size: 16px;
+
+  --border-radius-px: 5px;
+  --border-radius-em: 0.5em;
+
+  /* Colors */
+  --clr-black: #000;
+  --clr-white: #fff;
+  --clr-gray: hsl(208, 7%, 46%);
+  --clr-gray-dark: hsl(210, 10%, 23%);
+  --clr-gray-100: hsl(210, 17%, 98%);
+  --clr-gray-200: hsl(210, 16%, 93%);
+  --clr-gray-300: hsl(210, 14%, 89%);
+  --clr-gray-400: hsl(210, 14%, 83%);
+  --clr-gray-500: hsl(210, 11%, 71%);
+  --clr-gray-600: hsl(208, 7%, 46%);
+  --clr-gray-700: hsl(210, 9%, 31%);
+  --clr-gray-800: hsl(210, 10%, 23%);
+  --clr-gray-900: hsl(210, 11%, 15%);
+  --clr-primary: #0d6efd;
+  --clr-secondary: #6c757d;
+
+  /* HTML */
+  --clr-body-bg: white;
+  --clr-code-fg: deeppink;
+  --clr-btn-bg-dark: hsl(0, 0%, 30%);
+  --clr-btn-light: white;
+  --clr-link: darkcyan;
+
+  /* Class */
+  --clr-hero-bg: skyblue;
+  --clr-tags-bg: var(--clr-gray-200);
+  /* --clr-tags-bg: hsla(35, 68%, 79%, 0.2); */
+  /* --clr-card-bg: cornsilk; */
+  /* --clr-card-bg: paleturquoise; */
+  --clr-card-bg: var(--clr-gray-200);
+
+  /* Social medaia icon  */
+  --clr-icon-twitter: #1da1f2;
+  --clr-icon-linkedin: #0077b5;
+}
+
+body {
+  background-color: var(--clr-body-bg);
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3.25rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+code,
+.code {
+  font-family: "Source Code Pro", monospace;
+  font-size: 1rem;
+  color: var(--clr-code-fg);
+}
+
+p {
+  font-size: 1.2rem;
+  /* padding: 1em; */
+}
+
+br {
+  margin-bottom: 0.8em;
+}
+
+li {
+  margin-left: 2rem;
+}
+
+button {
+  padding: 0.5em;
+  background-color: hsla(0, 0%, 80%, 0.5);
+  border-radius: var(--border-radius-em);
+  border-style: none;
+  margin: 0.4em;
+}
+
+/* 
+Bootstrap Icons
+*/
+.bi {
+  margin-right: 0.25em;
+  font-size: 1.1em;
+}
+
+.bi-github {
+  color: var(--clr-btn-light);
+}
+
+.bi-twitter {
+  color: var(--clr-icon-twitter);
+}
+
+.bi-linkedin {
+  color: #0077b5;
+}
+
+/* 
+  App.js
+*/
+.App {
+  /* text-align: center; */
+  display: block;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  /* height: 40rem; */
+  width: 100%;
+  font-size: 4rem;
+  /* font-family: "Source Code Pro", monospace; */
+  background-color: var(--clr-hero-bg);
+  font-style: italic;
+  text-align: center; /* Within text */
+}
+
+.hero {
+  font-family: "Source Code Pro", monospace;
+  font-style: italic;
+  text-align: center; /* Within text */
+}
+
+.hero br {
+  /* For Hero's TypeIt .break() */
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+AboutMe.js
+*/
+.about-me {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.user--icon {
+  width: min(100%, 412px);
+  padding: 2rem;
+}
+
+.about-me--right {
+  width: min(100%, 40rem);
+  padding: 0 1em;
+}
+
+/* .about-me--title{
+
+} */
+
+/* 
+SocialLinks.js
+*/
+.social--links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+}
+
+.social--links > a {
+  background-color: var(--clr-btn-bg-dark);
+  color: var(--clr-btn-light);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: var(--border-radius-em);
+  padding: 0.8em;
+  margin: 0 1em 1em 0;
+  /* outline: 1px solid red; */
+}
+
+/* 
+Projects.js
+*/
+.projects {
+  padding: 0 1rem;
+}
+
+.projects--title {
+  border: none;
+  border-bottom: 5px solid var(--clr-gray-400);
+}
+
+.projects--tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: var(--clr-tags-bg);
+  /* background-color: red; */
+  border-radius: var(--border-radius-px);
+  margin: 1rem 0;
+  padding: 0.2em 0.4em;
+}
+
+.tag {
+  color: var(--clr-link);
+  /* text-decoration: underline; */
+  padding: 0 1em;
+  cursor: pointer;
+}
+
+.projects--cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.projects--cards .tag {
+  cursor: initial;
+}
+
+.project--card-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* 
+ProjectCard.js
+*/
+
+.project--card {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 30rem);
+  background-color: var(--clr-card-bg);
+  margin: 1em;
+  padding-bottom: 1em;
+  border-radius: var(--border-radius-px);
+  /* background-color: paleturquoise; */
+}
+
+.project--card-title {
+  padding: 0.1em;
+}
+
+.project--card-image {
+  background-color: azure;
+  height: min(10rem, 200px);
+  object-fit: cover;
+  width: 100%;
+  border-radius: var(--border-radius-px);
+}
+
+.project--card-description {
+  padding: 1em;
+  line-height: 1.5em;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project--card-url {
+  padding-left: 1.2em;
+  display: flex;
+  flex-direction: column;
+}
+.project--card-url * {
+  margin-bottom: 1em;
+}
+
+.project--card-url .bi {
+  color: var(--clr-black);
+  margin-right: 0.5em;
+}
+
+/* 
+Footer.js
+*/
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: hsl(0, 0%, 60%);
+  padding: 1em;
+  margin-top: 2rem;
+}
+
+.footer div {
+  color: var(--clr-white);
+  font-size: 0.8rem;
+}
