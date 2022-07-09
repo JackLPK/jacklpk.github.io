@@ -1,11 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,700&display=swap");
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Source Sans Pro", sans-serif;
-  /* outline: hsla(350, 100%, 88%, 0.4) solid 1px; */
+  outline: hsla(350, 100%, 88%, 0.4) solid 1px;
 }
 
 :root {
@@ -13,6 +12,14 @@
 
   --border-radius-px: 5px;
   --border-radius-em: 0.5em;
+
+  --font-primary: "Source Sans Pro", sans-serif;
+
+  /* Layout */
+  --size-sm: 576px;
+  --size-md: 768px;
+  --size-lg: 992px;
+  --size-xl: 1200px;
 
   /* Colors */
   --clr-black: #000;
@@ -51,8 +58,37 @@
   --clr-icon-linkedin: #0077b5;
 }
 
+a {
+  text-decoration: none;
+  color: var(--clr-link);
+}
+
 body {
   background-color: var(--clr-body-bg);
+  font-family: var(--font-primary);
+}
+
+br {
+  margin-bottom: 0.8em;
+}
+
+button {
+  padding: 0.5em;
+  background-color: hsla(0, 0%, 80%, 0.5);
+  border-radius: var(--border-radius-em);
+  border-style: none;
+  margin: 0.4em;
+}
+
+code,
+.code {
+  font-family: "Source Code Pro", monospace;
+  font-size: 1rem;
+  color: var(--clr-code-fg);
+}
+
+footer {
+  width: 100%;
 }
 
 h1 {
@@ -67,32 +103,17 @@ h3 {
   font-size: 3rem;
 }
 
-code,
-.code {
-  font-family: "Source Code Pro", monospace;
-  font-size: 1rem;
-  color: var(--clr-code-fg);
-}
-
-p {
-  font-size: 1.2rem;
-  /* padding: 1em; */
-}
-
-br {
-  margin-bottom: 0.8em;
+image {
+  width: 100%;
+  border-radius: 10px;
 }
 
 li {
   margin-left: 2rem;
 }
 
-button {
-  padding: 0.5em;
-  background-color: hsla(0, 0%, 80%, 0.5);
-  border-radius: var(--border-radius-em);
-  border-style: none;
-  margin: 0.4em;
+p {
+  padding-bottom: 0.8em;
 }
 
 /* 
@@ -100,7 +121,6 @@ Bootstrap Icons
 */
 .bi {
   margin-right: 0.25em;
-  font-size: 1.1em;
 }
 
 .bi-github {
@@ -120,7 +140,10 @@ Bootstrap Icons
 */
 .App {
   /* text-align: center; */
-  display: block;
+  /* display: block; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-container {
@@ -171,9 +194,9 @@ AboutMe.js
   padding: 0 1em;
 }
 
-/* .about-me--title{
-
-} */
+.about-me--text {
+  font-size: 1.2rem;
+}
 
 /* 
 SocialLinks.js
@@ -181,17 +204,19 @@ SocialLinks.js
 .social--links {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 0 1rem;
 }
 
-.social--links > a {
+.social-link-btn {
+  display: inline-flex;
+  align-items: center;
   background-color: var(--clr-btn-bg-dark);
   color: var(--clr-btn-light);
   font-weight: bold;
-  text-decoration: none;
   border-radius: var(--border-radius-em);
   padding: 0.8em;
   margin: 0 1em 1em 0;
@@ -203,11 +228,13 @@ Projects.js
 */
 .projects {
   padding: 0 1rem;
+  /* width: min(100%, 1000px); */
 }
 
 .projects--title {
   border: none;
   border-bottom: 5px solid var(--clr-gray-400);
+  font-size: 2.5rem;
 }
 
 .projects--tags {
@@ -229,10 +256,23 @@ Projects.js
 }
 
 .projects--cards {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  align-items: stretch;
+  align-items: stretch; */
+
+  /* try grid */
+  display: grid;
+  grid-template-columns: 100%;
+  gap: .2rem;
 }
+
+@media only screen and (min-width: 960px) {
+  .projects--cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
 
 .projects--cards .tag {
   cursor: initial;
@@ -250,21 +290,22 @@ ProjectCard.js
 .project--card {
   display: flex;
   flex-direction: column;
-  width: min(100%, 30rem);
   background-color: var(--clr-card-bg);
   margin: 1em;
   padding-bottom: 1em;
   border-radius: var(--border-radius-px);
+  max-width: 419px;
   /* background-color: paleturquoise; */
 }
 
 .project--card-title {
   padding: 0.1em;
+  font-size: 2rem;
 }
 
 .project--card-image {
   background-color: azure;
-  height: min(10rem, 200px);
+  /* height: min(10rem, 200px); */
   object-fit: cover;
   width: 100%;
   border-radius: var(--border-radius-px);
@@ -273,23 +314,27 @@ ProjectCard.js
 .project--card-description {
   padding: 1em;
   line-height: 1.5em;
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   flex-grow: 1;
 }
 
-.project--card-url {
+.project--card-urls {
   padding-left: 1.2em;
   display: flex;
   flex-direction: column;
 }
-.project--card-url * {
+.project--card-urls > a {
+  display: flex;
+  align-items: center;
   margin-bottom: 1em;
 }
 
-.project--card-url .bi {
+.project--card-urls .bi {
   color: var(--clr-black);
   margin-right: 0.5em;
+  width: 1.25em;
+  height: 1.25em;
 }
 
 /* 

@@ -6,18 +6,20 @@ function setIntersect(setA, setB) {
   return new Set([...setA].filter((element) => setB.has(element)))
 }
 
-export default function Projects() {
-  function ClearFilterButton(props) {
-    if (props.isEmpty) {
-      return <></>
-    } else {
-      return <button onClick={props.handleClick}>clear</button>
-    }
-  }
+function ClearFilterButton(props) {
+  return (
+    <button
+      onClick={props.handleClick}
+      style={{ visibility: props.isEmpty ? "hidden" : "visible" }}
+    >
+      clear
+    </button>
+  )
+}
 
+export default function Projects() {
   // const tags = ["Python", "JavaScript", "R"]
   const tags = ["Python", "JavaScript"]
-
 
   const [filterTags, setFilterTags] = useState(new Set([]))
   // console.log(filterTags)
