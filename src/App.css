@@ -77,7 +77,7 @@ button {
   background-color: hsla(0, 0%, 80%, 0.5);
   border-radius: var(--border-radius-em);
   border-style: none;
-  margin: 0.4em;
+  /* margin: 0.4em; */
 }
 
 code,
@@ -242,11 +242,9 @@ Projects.js
   flex-wrap: wrap;
   align-items: center;
   background-color: var(--clr-tags-bg);
-  /* background-color: red; */
-  /* border-radius: var(--border-radius-px); */
   border-radius: 1em;
   margin: 1rem 0;
-  padding: 0.1em 1em;
+  padding: .5em 1em;
 }
 
 .tag {
@@ -254,6 +252,12 @@ Projects.js
   /* text-decoration: underline; */
   padding: 0 1em;
   cursor: pointer;
+}
+
+.clear-btn {
+  letter-spacing: .1em;
+  font-size: .75em;
+  margin: 0 1em;
 }
 
 .projects--cards {
@@ -294,13 +298,14 @@ ProjectCard.js
   background-color: var(--clr-card-bg);
   margin: 1em;
   padding-bottom: 1em;
-  border-radius: var(--border-radius-px);
+  /* border-radius: var(--border-radius-px); */
+  border-radius: var(--border-radius-em);
   max-width: 419px;
   /* background-color: paleturquoise; */
 }
 
 .project--card-title {
-  padding: 0.1em;
+  padding: 0.1em .5em;
   font-size: 2rem;
 }
 
@@ -309,7 +314,8 @@ ProjectCard.js
   /* height: min(10rem, 200px); */
   object-fit: cover;
   width: 100%;
-  border-radius: var(--border-radius-px);
+  /* border-radius: var(--border-radius-px); */
+  border-radius: var(--border-radius-em);
 }
 
 .project--card-description {
