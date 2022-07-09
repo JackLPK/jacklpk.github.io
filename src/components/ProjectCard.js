@@ -12,9 +12,7 @@ import { ReactComponent as ArrowRight } from "bootstrap-icons/icons/arrow-right.
 */
 
 export default function ProjectCard(props) {
-  // console.log(props)
   const { project } = props
-  // console.log(project.image)
 
   const imgElement = (
     <img
@@ -48,14 +46,10 @@ export default function ProjectCard(props) {
     <div className="project--card">
       {imgElement}
       <h3 className="project--card-title">{project.title}</h3>
-      <div className="project--card-description">
-        {/* wrap in div because flex */}
-        {/* <div>{project.description}</div>  */}
-        {project.description}
-      </div>
+      <div className="project--card-description">{project.description}</div>
       <div className="project--card-urls">
-        {project.sourceUrl && viewSourceElement}
         {project.siteUrl && viewSiteElement}
+        {project.sourceUrl && viewSourceElement}
       </div>
       <div className="project--card-tags">{tagsElements}</div>
     </div>

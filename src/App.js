@@ -1,10 +1,10 @@
-import './App.css';
-import Hero from './components/Hero';
-import AboutMe from './components/AboutMe';
-import SocialLinks from './components/SocialLinks';
-import Projects from './components/Projects';
-import Survey from './components/Survey';
-import Footer from './components/Footer';
+import "./App.css"
+import Hero from "./components/Hero"
+import AboutMe from "./components/AboutMe"
+import SocialLinks from "./components/SocialLinks"
+import Projects from "./components/Projects"
+import Survey from "./components/Survey"
+import Footer from "./components/Footer"
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       {/* <Survey /> */}
       <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

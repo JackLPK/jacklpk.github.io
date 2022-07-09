@@ -1,13 +1,19 @@
 import React from "react"
 
-export default [
+/* 
+  Note:
+  wrap description in <p></p>
+*/
+
+const data = [
   {
     title: "Async pipx package update checker",
     image: "/images/crop/aiocpxo-1.png",
     alt: "alt of image",
     description: (
       <p>
-        Since there is no simple way to know which packages installed under <code>pipx</code> are outdated, I create this installable script. Also a
+        Since there is no simple way to know which packages installed under{" "}
+        <code>pipx</code> are outdated, I create this installable script. Also a
         fun litte experiment with threading and asynchronous programming in
         Python.
       </p>
@@ -35,7 +41,8 @@ export default [
     alt: "rock-paper-scissors",
     description: (
       <p>
-        A game of rock-paper-scissors. <br/>Written in React.
+        A game of rock-paper-scissors. <br />
+        Written in React.
       </p>
     ),
     sourceUrl: "https://github.com/PKLJack/react-rock-paper-scissors",
@@ -48,7 +55,8 @@ export default [
     alt: "alt of image",
     description: (
       <p>
-        A Game where you flip cards and remember where they are.<br/>
+        A Game where you flip cards and remember where they are.
+        <br />
         Written in React.
       </p>
     ),
@@ -57,3 +65,9 @@ export default [
     tags: ["ReactJS", "JavaScript"],
   },
 ]
+
+function fetchData() {
+  return data
+}
+
+export { fetchData }
