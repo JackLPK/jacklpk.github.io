@@ -243,9 +243,10 @@ Projects.js
   align-items: center;
   background-color: var(--clr-tags-bg);
   /* background-color: red; */
-  border-radius: var(--border-radius-px);
+  /* border-radius: var(--border-radius-px); */
+  border-radius: 1em;
   margin: 1rem 0;
-  padding: 0.2em 0.4em;
+  padding: 0.1em 1em;
 }
 
 .tag {
