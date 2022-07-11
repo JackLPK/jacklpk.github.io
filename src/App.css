@@ -4,7 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* outline: hsla(350, 100%, 88%, 0.4) solid 1px; */
+  outline: hsla(350, 100%, 88%, 0.4) solid 1px;
 }
 
 :root {
@@ -146,8 +146,9 @@ Bootstrap Icons
   align-items: center;
 }
 
-.hero-container {
+.hero{
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 70vh;
@@ -160,22 +161,22 @@ Bootstrap Icons
   text-align: center; /* Within text */
 }
 
-.hero {
+.hero__text {
   font-family: "Source Code Pro", monospace;
   font-style: italic;
   text-align: center; /* Within text */
 }
 
-.hero br {
-  /* For Hero's TypeIt .break() */
+/* .hero__text br {
+  For Hero's TypeIt .break()
   margin: 0;
   padding: 0;
-}
+} */
 
 /* 
 AboutMe.js
 */
-.about-me {
+.aboutme {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -184,24 +185,28 @@ AboutMe.js
   padding: 1rem;
 }
 
-.user--icon {
+.aboutme__img {
   width: min(100%, 412px);
   padding: 2rem;
 }
 
-.about-me--right {
+.aboutme__right {
   width: min(100%, 40rem);
   padding: 0 1em;
 }
 
-.about-me--text {
+.aboutme__title {
+  font-size: 4rem;
+}
+
+.aboutme__body {
   font-size: 1.2rem;
 }
 
 /* 
 SocialLinks.js
 */
-.social--links {
+.social-links {
   display: flex;
   align-items: center;
   /* justify-content: flex-end; */
@@ -211,7 +216,7 @@ SocialLinks.js
   padding: 0 1rem;
 }
 
-.social-link-btn {
+.social-links__btn {
   display: inline-flex;
   align-items: center;
   background-color: var(--clr-btn-bg-dark);
@@ -231,20 +236,20 @@ Projects.js
   /* width: min(100%, 1000px); */
 }
 
-.projects--title {
+.projects__title {
   border: none;
   border-bottom: 5px solid var(--clr-gray-400);
   font-size: 2.5rem;
 }
 
-.projects--tags {
+.projects__tags {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   background-color: var(--clr-tags-bg);
   border-radius: 1em;
   margin: 1rem 0;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
 }
 
 .tag {
@@ -255,35 +260,28 @@ Projects.js
 }
 
 .clear-btn {
-  letter-spacing: .1em;
-  font-size: .75em;
+  letter-spacing: 0.1em;
+  font-size: 0.75em;
   margin: 0 1em;
 }
 
-.projects--cards {
-  /* display: flex;
-  flex-wrap: wrap;
-  align-items: stretch; */
-
-  /* try grid */
+.projects__cards {
   display: grid;
   grid-template-columns: 100%;
-  gap: .2rem;
+  gap: 0.2rem;
 }
 
 @media only screen and (min-width: 960px) {
-  .projects--cards {
+  .projects__cards {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-
-
-.projects--cards .tag {
+.projects__cards .tag {
   cursor: initial;
 }
 
-.project--card-tags {
+.card__tags {
   display: flex;
   flex-wrap: wrap;
 }
@@ -292,7 +290,7 @@ Projects.js
 ProjectCard.js
 */
 
-.project--card {
+.card {
   display: flex;
   flex-direction: column;
   background-color: var(--clr-card-bg);
@@ -304,12 +302,12 @@ ProjectCard.js
   /* background-color: paleturquoise; */
 }
 
-.project--card-title {
-  padding: 0.1em .5em;
+.card__title {
+  padding: 0.1em 0.5em;
   font-size: 2rem;
 }
 
-.project--card-image {
+.card__img {
   background-color: azure;
   /* height: min(10rem, 200px); */
   object-fit: cover;
@@ -318,7 +316,7 @@ ProjectCard.js
   border-radius: var(--border-radius-em);
 }
 
-.project--card-description {
+.card__body {
   padding: 1em;
   line-height: 1.5em;
   /* display: flex; */
@@ -326,18 +324,18 @@ ProjectCard.js
   flex-grow: 1;
 }
 
-.project--card-urls {
+.card__urls {
   padding-left: 1.2em;
   display: flex;
   flex-direction: column;
 }
-.project--card-urls > a {
+.card__url {
   display: flex;
   align-items: center;
   margin-bottom: 1em;
 }
 
-.project--card-urls .bi {
+.card__urls .bi {
   color: var(--clr-black);
   margin-right: 0.5em;
   width: 1.25em;
@@ -356,7 +354,7 @@ Footer.js
   margin-top: 2rem;
 }
 
-.footer div {
+.footer__text {
   color: var(--clr-white);
   font-size: 0.8rem;
 }

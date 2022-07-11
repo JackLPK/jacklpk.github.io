@@ -52,8 +52,8 @@ export default function Projects() {
 
   return (
     <section className="projects">
-      <h1 className="projects--title">Projects</h1>
-      <div className="projects--tags">
+      <h1 className="projects__title">Projects</h1>
+      <div className="projects__tags">
         Filter:
         <ClearFilterButton
           isEmpty={currTag === NO_TAG}
@@ -61,7 +61,7 @@ export default function Projects() {
         />
         {tagsElements}
       </div>
-      <div className="projects--cards">{projectCardElements}</div>
+      <div className="projects__cards">{projectCardElements}</div>
     </section>
   )
 }

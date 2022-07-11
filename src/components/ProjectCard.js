@@ -6,7 +6,7 @@ import { ReactComponent as ArrowRight } from "bootstrap-icons/icons/arrow-right.
 /* 
   <img 
     src={project.image} 
-    className="project--card-image" 
+    className="card-image" 
     alt={project.alt}
   />
 */
@@ -17,20 +17,20 @@ export default function ProjectCard(props) {
   const imgElement = (
     <img
       src={process.env.PUBLIC_URL + project.image}
-      className="project--card-image"
+      className="card__img"
       alt={project.alt}
     />
   )
 
   const viewSourceElement = (
-    <a href={project.sourceUrl} className="project--card-source">
+    <a href={project.sourceUrl} className="card__url">
       <GithubIcon className="bi bi-github" />
       View Source
     </a>
   )
 
   const viewSiteElement = (
-    <a href={project.siteUrl} className="project--card-site">
+    <a href={project.siteUrl} className="card__url">
       <ArrowRight className="bi" />
       View Site
     </a>
@@ -43,15 +43,15 @@ export default function ProjectCard(props) {
   ))
 
   return (
-    <div className="project--card">
+    <div className="card">
       {imgElement}
-      <h3 className="project--card-title">{project.title}</h3>
-      <div className="project--card-description">{project.description}</div>
-      <div className="project--card-urls">
+      <h3 className="card__title">{project.title}</h3>
+      <div className="card__body">{project.description}</div>
+      <div className="card__urls">
         {project.siteUrl && viewSiteElement}
         {project.sourceUrl && viewSourceElement}
       </div>
-      <div className="project--card-tags">{tagsElements}</div>
+      <div className="card__tags">{tagsElements}</div>
     </div>
   )
 }

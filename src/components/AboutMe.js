@@ -3,7 +3,7 @@ import UserIcon from "../images/UserIcon1.svg"
 
 export default function AboutMe() {
   const shortAbout = (
-    <div className="about-me--text">
+    <div className="aboutme__body">
       <p>
         I am a Computer Science student from University of Nottingham. I love{" "}
         <strong>learning</strong> new tech, <strong>building</strong> projects,
@@ -17,12 +17,12 @@ export default function AboutMe() {
   )
 
   return (
-    <section className="about-me">
-      <img src={UserIcon} className="user--icon" />
-      <div className="about-me--right">
+    <section className="aboutme">
+      <img src={UserIcon} className="aboutme__img" />
+      <div className="aboutme__right">
         {/* <button className="active">Short About Me</button>
         <button className="">Long About Me</button> */}
-        <h1 className="about-me--title">Hi, I'm Jack</h1>
+        <h1 className="aboutme__title">Hi, I'm Jack</h1>
         {shortAbout}
       </div>
     </section>

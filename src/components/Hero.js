@@ -6,11 +6,11 @@ export default function Hero() {
     getBeforeInit: (instance) => {
       // console.log(instance.getOptions())
       instance
-        .options({ speed: 0, lifeLike: false })
-        .type("Hello!")
+        // .options({ speed: 0, lifeLike: false })
+        // .type("Hello!")
         .options({ speed: 100, lifeLike: true })
         .pause(1000)
-        .break({ delay: 1000 })
+        // .break({ delay: 1000 })
         .type("Welcome to my Website!!!")
         .pause(1000)
         .delete(1)
@@ -21,9 +21,10 @@ export default function Hero() {
   }
 
   return (
-    <div className="hero-container">
+    <div className="hero">
+      <span className="hero__text">Hello!</span>
       <TypeIt
-        className="hero"
+        className="hero__text"
         getBeforeInit={typeItConfig.getBeforeInit}
       />
     </div>
