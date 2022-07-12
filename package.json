@@ -1,46 +1,30 @@
 {
-  "name": "new-react-site",
-  "homepage": "https://pkljack.github.io",
+  "name": "my-website-next",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "bootstrap-icons": "^1.8.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typeit-react": "^2.5.1-alpha.0",
-    "web-vitals": "^2.1.4"
-  },
+  "homepage": "pkljack.github.io/",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "dev": "next dev -H localhost -p 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "preexport": "npm run build",
+    "export": "next export",
+    "export:win": "npm run export && type NUL > ./out/.nojekyll",
+    "export:linux": "npm run export && touch ./out/.nojekyll",
+    "deploy": "gh-pages --dotfiles --dist out"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@svgr/webpack": "^6.2.1",
+    "bootstrap-icons": "^1.8.3",
+    "next": "12.2.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typeit-react": "^2.5.4"
   },
   "devDependencies": {
+    "eslint": "8.19.0",
+    "eslint-config-next": "12.2.2",
     "gh-pages": "^4.0.0"
   }
 }
