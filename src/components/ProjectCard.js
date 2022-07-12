@@ -16,7 +16,7 @@ export default function ProjectCard(props) {
 
   const imgElement = (
     <img
-      src={process.env.PUBLIC_URL + project.image}
+      src={project.image}
       className="card__img"
       alt={project.alt}
     />
