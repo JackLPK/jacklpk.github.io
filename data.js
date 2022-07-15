@@ -7,6 +7,22 @@ import React from "react"
 
 const data = [
   {
+    title: "Whac-A-Mole Game",
+    image: "/images/crop/react-whac-a-mole-1.png",
+    alt: "Whac-A-Mole Game",
+    date: "2022-07-15",
+    description: (
+      <p>
+        A game where you click on all the moles, they can be really fast.
+        <br />
+        Build with React.
+      </p>
+    ),
+    sourceUrl: "https://github.com/PKLJack/react-whac-a-mole",
+    siteUrl: "https://pkljack-whac-a-mole-react.netlify.app/",
+    tags: ["ReactJS", "JavaScript"],
+  },
+  {
     title: "Async pipx package update checker",
     image: "/images/crop/aiocpxo-1.png",
     alt: "alt of image",
@@ -20,7 +36,7 @@ const data = [
     ),
     sourceUrl: "https://github.com/JackLPK/check-pipx-outdates",
     siteUrl: null,
-    tags: ["Python", "async"],
+    tags: ["Python", "Async"],
   },
   // {
   //   title: "Conway's Game of Life",
@@ -28,7 +44,7 @@ const data = [
   //   alt: "alt of image",
   //   description: (
   //     <p>
-  //       Conway's Game of Life written in React.
+  //       Conway's Game of Life Build with React.
   //     </p>
   //   ),
   //   sourceUrl: "#",
@@ -42,7 +58,7 @@ const data = [
     description: (
       <p>
         A game of rock-paper-scissors. <br />
-        Written in React.
+        Build with React.
       </p>
     ),
     sourceUrl: "https://github.com/PKLJack/react-rock-paper-scissors",
@@ -55,9 +71,9 @@ const data = [
     alt: "alt of image",
     description: (
       <p>
-        A Game where you flip cards and remember where they are.
+        A game where you flip cards and remember where they are.
         <br />
-        Written in React.
+        Build with React.
       </p>
     ),
     sourceUrl: "https://github.com/PKLJack/react-memory-game",
