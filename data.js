@@ -7,6 +7,22 @@ import React from "react"
 
 const data = [
   {
+    title: "World Clock",
+    image: "/images/crop/react-world-clock-1.png",
+    alt: "World Clock",
+    date: "2022-07-22",
+    description: (
+      <p>
+        Clocks to show different time across the world. Use sliders to advance time.
+        <br />
+        Build with React.
+      </p>
+    ),
+    sourceUrl: "https://github.com/PKLJack/react-world-clock",
+    siteUrl: "https://pkljack-world-clock-react.netlify.app/",
+    tags: ["ReactJS", "JavaScript", "TypeScript"],
+  },
+  {
     title: "Whac-A-Mole Game",
     image: "/images/crop/react-whac-a-mole-1.png",
     alt: "Whac-A-Mole Game",
