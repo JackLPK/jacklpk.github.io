@@ -268,7 +268,7 @@ Projects.js
 .projects__cards {
   display: grid;
   grid-template-columns: 100%;
-  gap: 0.2rem;
+  gap: 2rem;
 }
 
 @media only screen and (min-width: 960px) {
@@ -294,12 +294,10 @@ ProjectCard.js
   display: flex;
   flex-direction: column;
   background-color: var(--clr-card-bg);
-  margin: 1em;
-  padding-bottom: 1em;
-  /* border-radius: var(--border-radius-px); */
+  margin: 0 auto;
+  padding-bottom: .5em;
   border-radius: var(--border-radius-em);
   max-width: 419px;
-  /* background-color: paleturquoise; */
 }
 
 .card__title {
