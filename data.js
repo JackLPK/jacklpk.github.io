@@ -7,6 +7,22 @@ import React from "react"
 
 const data = [
   {
+    title: "QR Code Generator",
+    image: "/images/crop/qrcode-generator-react-1-crop.png",
+    alt: "QR Code Generator",
+    date: "2022-08-20",
+    description: (
+      <p>
+        A simple QR Code generator.
+        <br />
+        Build with React.
+      </p>
+    ),
+    sourceUrl: "https://github.com/PKLJack/react-qrcode-generator",
+    siteUrl: "https://pkljack-qrcode-generator-react.netlify.app/",
+    tags: ["ReactJS", "JavaScript", "TypeScript", "NextJS"],
+  },
+  {
     title: "World Clock",
     image: "/images/crop/react-world-clock-1.png",
     alt: "World Clock",
