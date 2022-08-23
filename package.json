@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "pkljack.github.io/",
   "scripts": {
-    "dev": "next dev -H localhost -p 3000",
+    "dev": "next dev -H localhost -p 3333",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,6 +12,7 @@
     "export": "next export",
     "export:win": "npm run export && type NUL > ./out/.nojekyll",
     "export:linux": "npm run export && touch ./out/.nojekyll",
+    "local": "http-server out -a localhost",
     "deploy": "gh-pages --dotfiles --dist out"
   },
   "dependencies": {
