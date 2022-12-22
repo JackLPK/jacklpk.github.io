@@ -1,13 +1,16 @@
 import React from "react"
+import { Container } from "semantic-ui-react"
 import TypeIt from "typeit-react"
 
 export default function Hero() {
   const typeItConfig = {
-    getBeforeInit: (instance) => {
+    getBeforeInit: (instance: any) => {
       // console.log(instance.getOptions())
       instance
         // .options({ speed: 0, lifeLike: false })
         // .type("Hello!")
+        // .options({ speed: 0, lifeLike: false })
+        // .type("<br/>")
         .options({ speed: 100, lifeLike: true })
         .pause(1000)
         // .break({ delay: 1000 })
@@ -21,12 +24,16 @@ export default function Hero() {
   }
 
   return (
-    <div className="hero">
-      <span className="hero__text">Hello!</span>
-      <TypeIt
-        className="hero__text"
-        getBeforeInit={typeItConfig.getBeforeInit}
-      />
-    </div>
+    
+      <div className="hero">
+        <div className="hero__text">Hello!</div>
+        {/* <br/> */}
+        <TypeIt
+          className="hero__text"
+          getBeforeInit={typeItConfig.getBeforeInit}
+          as="div"
+        />
+      </div>
+    
   )
 }

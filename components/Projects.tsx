@@ -7,7 +7,12 @@ import ProjectCard from "./ProjectCard"
 
 const NO_TAG = "" // Means not filtering anything
 
-function ClearFilterButton(props) {
+type Props = {
+    handleClick: React.MouseEventHandler
+    isEmpty: boolean
+}
+
+function ClearFilterButton(props: Props) {
   return (
     <button
       onClick={props.handleClick}
@@ -26,7 +31,7 @@ export default function Projects() {
   const availableTags = reduceTags(cardsArray)
   const tags = sortTags(availableTags)
 
-  function handleTagClick(event, tagText) {
+  function handleTagClick(event: React.MouseEvent, tagText: string) {
     setCurrTag(tagText)
   }
 

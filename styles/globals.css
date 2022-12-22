@@ -7,6 +7,13 @@
   /* outline: hsla(350, 100%, 88%, 0.4) solid 1px; */
 }
 
+/* Patch for semantic ui */
+/* Disable left right margin on mobile */
+.ui.fluid.container {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 :root {
   font-size: 16px;
 
@@ -117,21 +124,17 @@ p {
 }
 
 /* 
-Bootstrap Icons
+  Icons
 */
-.bi {
-  margin-right: 0.25em;
-}
-
-.bi-github {
+.icon.github {
   color: var(--clr-btn-light);
 }
 
-.bi-twitter {
+.icon.twitter {
   color: var(--clr-icon-twitter);
 }
 
-.bi-linkedin {
+.icon.linkedin {
   color: #0077b5;
 }
 
@@ -165,13 +168,9 @@ Bootstrap Icons
   font-family: "Source Code Pro", monospace;
   font-style: italic;
   text-align: center; /* Within text */
+  padding: 0 1em;
+  line-height: 4rem;
 }
-
-/* .hero__text br {
-  For Hero's TypeIt .break()
-  margin: 0;
-  padding: 0;
-} */
 
 /* 
 AboutMe.js
@@ -218,7 +217,7 @@ SocialLinks.js
 
 .social-links__btn {
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   background-color: var(--clr-btn-bg-dark);
   color: var(--clr-btn-light);
   font-weight: bold;
@@ -233,7 +232,8 @@ Projects.js
 */
 .projects {
   padding: 0 1rem;
-  /* width: min(100%, 1000px); */
+  width: min(100%, 1000px);
+  margin: 0 auto;
 }
 
 .projects__title {
@@ -295,7 +295,7 @@ ProjectCard.js
   flex-direction: column;
   background-color: var(--clr-card-bg);
   margin: 0 auto;
-  padding-bottom: .5em;
+  padding-bottom: 0.5em;
   border-radius: var(--border-radius-em);
   max-width: 419px;
 }
@@ -329,15 +329,12 @@ ProjectCard.js
 }
 .card__url {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   margin-bottom: 1em;
 }
 
-.card__urls .bi {
+.card__urls .icon {
   color: var(--clr-black);
-  margin-right: 0.5em;
-  width: 1.25em;
-  height: 1.25em;
 }
 
 /* 

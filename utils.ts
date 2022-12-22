@@ -1,4 +1,6 @@
-function sortTags(arr1) {
+import { CardData } from "./models"
+
+function sortTags(arr1: Array<string>): string[] {
   const importance = ["ReactJS", "JavaScript", "Python", "R"]
   importance.reverse()
 
@@ -15,7 +17,7 @@ function sortTags(arr1) {
   return arr2
 }
 
-function reduceTags(cardsArray) {
+function reduceTags(cardsArray: any[]): string[] {
   return Array.from(
     new Set(
       cardsArray.reduce((prev, curr) => {

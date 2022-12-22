@@ -1,0 +1,26 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "export:win",
+			"problemMatcher": [],
+			"label": "npm: export:win",
+			"detail": "npm run export && type NUL > ./out/.nojekyll"
+		},
+		{
+			"type": "npm",
+			"script": "local",
+			"problemMatcher": [],
+			"label": "npm: local",
+			"detail": "http-server out -a localhost"
+		},
+		{
+			"type": "npm",
+			"script": "deploy",
+			"problemMatcher": [],
+			"label": "npm: deploy",
+			"detail": "gh-pages --dotfiles --dist out"
+		}
+	]
+}

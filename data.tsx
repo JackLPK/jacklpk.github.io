@@ -1,11 +1,12 @@
 import React from "react"
+import { CardData } from "./models"
 
 /* 
   Note:
   wrap description in <p></p>
 */
 
-const data = [
+const data: CardData[] = [
   {
     title: "Checksum Program",
     image: "/images/crop/ghash-01-crop.png",
@@ -19,6 +20,7 @@ const data = [
       </p>
     ),
     sourceUrl: "https://github.com/PKLJack/ghash",
+    siteUrl: null,
     tags: ["Python", "Qt", "PySide6"],
   },
   {
@@ -44,7 +46,8 @@ const data = [
     date: "2022-07-22",
     description: (
       <p>
-        Clocks to show different time across the world. Use sliders to advance time.
+        Clocks to show different time across the world. Use sliders to advance
+        time.
         <br />
         Build with React.
       </p>
@@ -73,6 +76,7 @@ const data = [
     title: "Async pipx package update checker",
     image: "/images/crop/aiocpxo-1.png",
     alt: "alt of image",
+    date: "2021-01-01",
     description: (
       <p>
         Since there is no simple way to know which packages installed under{" "}
@@ -102,6 +106,7 @@ const data = [
     title: "Rock Paper Scissors Game",
     image: "/images/crop/rock-paper-scissors-1.png",
     alt: "rock-paper-scissors",
+    date: null,
     description: (
       <p>
         A game of rock-paper-scissors. <br />
@@ -116,6 +121,7 @@ const data = [
     title: "Memory Game",
     image: "/images/crop/memory-game-1.png",
     alt: "alt of image",
+    date: null,
     description: (
       <p>
         A game where you flip cards and remember where they are.

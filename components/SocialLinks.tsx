@@ -1,22 +1,22 @@
 import React from "react"
-import { GithubIcon, TwitterIcon, LinkedInIcon } from "../icons"
+import { Icon } from "semantic-ui-react"
 
 export default function SocialLinks() {
   return (
     <div className="social-links">
       <a href="https://github.com/PKLJack" className="social-links__btn">
-        <GithubIcon className="bi bi-github" />
+        <Icon name="github" />
         <span>Github</span>
       </a>
       <a href="https://twitter.com/PKL_Jack" className="social-links__btn">
-        <TwitterIcon className="bi bi-twitter" />
+        <Icon name="linkedin" c />
         <span>Twitter</span>
       </a>
       <a
         href="https://www.linkedin.com/in/pui-kit-li-793555177/"
         className="btn social-links__btn"
       >
-        <LinkedInIcon className="bi bi-linkedin" />
+        <Icon name="twitter" cl />
         <span>LinkedIn</span>
       </a>
     </div>
