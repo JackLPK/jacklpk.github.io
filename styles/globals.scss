@@ -1,0 +1,92 @@
+/* globals */
+@use "abstracts" as a;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: a.$font-primary;
+  // outline: hsla(350, 100%, 88%, 0.4) solid 1px;
+}
+
+/* Patch for semantic ui */
+/* Disable left right margin on mobile */
+.ui.fluid.container {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+:root {
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-link);
+}
+
+body {
+  background-color: var(--clr-body-bg);
+  font-family: var(--font-primary);
+}
+
+br {
+  margin-bottom: 0.8em;
+}
+
+button {
+  padding: 0.5em;
+  background-color: hsla(0, 0%, 80%, 0.5);
+  border-radius: var(--border-radius-em);
+  border-style: none;
+  /* margin: 0.4em; */
+}
+
+code,
+.code {
+  font-family: "Source Code Pro", monospace;
+  font-size: 1rem;
+  color: var(--clr-code-fg);
+}
+
+footer {
+  width: 100%;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3.25rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+li {
+  margin-left: 2rem;
+}
+
+p {
+  padding-bottom: 0.8em;
+}
+
+/* Icons */
+.icon.github {
+  color: a.$clr-btn-light;
+}
+
+.icon.twitter {
+  color: a.$clr-icon-twitter;
+}
+
+.icon.linkedin {
+  color: a.$clr-icon-linkedin;
+}

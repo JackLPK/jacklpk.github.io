@@ -8,3 +8,9 @@ export type CardData = {
   siteUrl: string | null
   tags: string[]
 }
+
+// Tag and how many times it appeared in data
+export type TagData = {
+  name: string
+  count: number
+}

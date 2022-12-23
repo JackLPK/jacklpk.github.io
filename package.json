@@ -16,7 +16,6 @@
     "deploy": "gh-pages --dotfiles --dist out"
   },
   "dependencies": {
-    "@next/font": "13.0.7",
     "@svgr/webpack": "^6.5.1",
     "@types/node": "18.11.17",
     "@types/react": "18.0.26",
@@ -32,6 +31,7 @@
   },
   "devDependencies": {
     "eslint": "^8.30.0",
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "sass": "^1.57.1"
   }
 }

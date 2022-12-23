@@ -1,0 +1,55 @@
+/* Projects */
+@use "abstracts" as a;
+
+.projects {
+  padding: 0 1rem;
+  width: min(100%, 1000px);
+  margin: 0 auto;
+}
+
+.projects__title {
+  border: none;
+  border-bottom: 5px solid a.$clr-gray-400;
+  font-size: 2.5rem;
+}
+
+.projects__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: a.$clr-tags-bg;
+  border-radius: 1em;
+  margin: 1rem 0;
+  padding: 0.5em 1em;
+  justify-content: flex-start;
+}
+
+.tag {
+  color: a.$clr-link;
+  /* text-decoration: underline; */
+  margin: 0 .5em;
+  cursor: pointer;
+}
+
+.tag--active{
+  text-decoration: underline;
+}
+
+.clear-btn {
+  margin-left: .5em;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.projects__cards {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 2rem;
+}
+
+@media only screen and (min-width: 960px) {
+  .projects__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

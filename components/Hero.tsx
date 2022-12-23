@@ -1,6 +1,7 @@
 import React from "react"
 import { Container } from "semantic-ui-react"
 import TypeIt from "typeit-react"
+import styles from "../styles/Hero.module.scss"
 
 export default function Hero() {
   const typeItConfig = {
@@ -24,16 +25,14 @@ export default function Hero() {
   }
 
   return (
-    
-      <div className="hero">
-        <div className="hero__text">Hello!</div>
-        {/* <br/> */}
-        <TypeIt
-          className="hero__text"
-          getBeforeInit={typeItConfig.getBeforeInit}
-          as="div"
-        />
-      </div>
-    
+    <div className={styles.hero}>
+      <div className={styles.hero__text}>Hello!</div>
+      {/* <br/> */}
+      <TypeIt
+        className={styles.hero__text}
+        getBeforeInit={typeItConfig.getBeforeInit}
+        as="div"
+      />
+    </div>
   )
 }

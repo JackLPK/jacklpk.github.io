@@ -1,0 +1,24 @@
+/* Hero */
+@use "abstracts" as a;
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  /* height: 40rem; */
+  width: 100%;
+  font-size: 4rem;
+  background-color: a.$clr-hero-bg;
+  //   font-style: italic;
+  text-align: center; /* Within text */
+}
+
+.hero__text {
+  font-family: a.$font-hero;
+  font-weight: bold;
+  text-align: center; /* Within text */
+  padding: 0 1em;
+  line-height: 4rem;
+}

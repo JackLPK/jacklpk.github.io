@@ -1,4 +1,4 @@
-import { CardData } from "./models"
+import { CardData, TagData } from "./models"
 
 function sortTags(arr1: Array<string>): string[] {
   const importance = ["ReactJS", "JavaScript", "Python", "R"]
@@ -27,4 +27,28 @@ function reduceTags(cardsArray: any[]): string[] {
   )
 }
 
-export { sortTags, reduceTags }
+/* Returns descending ordered TagData[] */
+function calculateTags(cardsArray: CardData[]): TagData[] {
+  const counter: any = {}
+
+  for (const card of cardsArray) {
+    for (const tag of card.tags) {
+      if (tag in counter) {
+        counter[tag] += 1
+      } else {
+        counter[tag] = 1
+      }
+    }
+  }
+
+  const pairs = Object.keys(counter).map((key) => ({
+    name: key,
+    count: counter[key],
+  }))
+
+  pairs.sort((a, b) => b.count - a.count)
+
+  return pairs
+}
+
+export { sortTags, reduceTags, calculateTags }

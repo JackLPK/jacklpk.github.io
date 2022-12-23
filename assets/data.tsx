@@ -1,5 +1,5 @@
 import React from "react"
-import { CardData } from "./models"
+import { CardData } from "../models"
 
 /* 
   Note:
@@ -135,8 +135,8 @@ const data: CardData[] = [
   },
 ]
 
-function fetchData() {
+function fetchProjectCardsData() {
   return data
 }
 
-export { fetchData }
+export { fetchProjectCardsData }
