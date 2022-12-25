@@ -8,7 +8,11 @@ import Hero from "../components/Hero"
 import Projects from "../components/Projects"
 import SocialLinks from "../components/SocialLinks"
 
-export default function Home() {
+type Props = {
+  buildTimestamp: string
+}
+
+export default function Home(props: Props) {
   return (
     <>
       <Head>
@@ -26,7 +30,16 @@ export default function Home() {
           <Projects />
         </FloatingSurvey>
       </Container>
-      <Footer />
+      <Footer buildTimestamp={props.buildTimestamp} />
     </>
   )
+}
+
+export async function getStaticProps() {
+  const date = new Date()
+  const buildTimestamp = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
+
+  return {
+    props: { buildTimestamp: buildTimestamp },
+  }
 }

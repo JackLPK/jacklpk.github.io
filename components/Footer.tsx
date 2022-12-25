@@ -2,7 +2,11 @@ import React from "react"
 import { Popup } from "semantic-ui-react"
 import styles from "../styles/Footer.module.scss"
 
-export default function Footer() {
+type Props = {
+  buildTimestamp: string
+}
+
+export default function Footer(props: Props) {
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__text}>
@@ -15,6 +19,7 @@ export default function Footer() {
         />
       </div>
       <div className={styles.footer__text}>Build with Next.JS</div>
+      <div style={{ display: "none" }}>Build: {props.buildTimestamp}</div>
     </footer>
   )
 }
