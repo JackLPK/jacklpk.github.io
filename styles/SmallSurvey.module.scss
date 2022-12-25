@@ -1,0 +1,39 @@
+@use "abstracts" as a;
+
+.survey {
+  position: relative;
+  width: 20rem;
+  animation: fadeIn 2s;
+  opacity: .9;
+
+  .close-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0rem;
+    color: a.$clr-gray-400;
+    cursor: pointer;
+  }
+}
+
+.emoji-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 0.2rem;
+  margin-top: 0.5rem;
+  height: 2rem;
+
+  // Grid Items
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
