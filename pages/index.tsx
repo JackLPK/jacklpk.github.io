@@ -1,10 +1,12 @@
+import { Container } from "semantic-ui-react"
+
+import AboutMe from "../components/AboutMe"
+import FloatingSurvey from "../components/FloatingSurvey"
+import Footer from "../components/Footer"
 import Head from "next/head"
 import Hero from "../components/Hero"
-import AboutMe from "../components/AboutMe"
-import SocialLinks from "../components/SocialLinks"
-import { Container } from "semantic-ui-react"
 import Projects from "../components/Projects"
-import Footer from "../components/Footer"
+import SocialLinks from "../components/SocialLinks"
 
 export default function Home() {
   return (
@@ -16,13 +18,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Container fluid={true}>
-        <Hero />
+      <Hero />
+      <Container>
         <AboutMe />
         <SocialLinks />
-        <Projects />
-        <Footer />
+        <FloatingSurvey>
+          <Projects />
+        </FloatingSurvey>
       </Container>
+      <Footer />
     </>
   )
 }

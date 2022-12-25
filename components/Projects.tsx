@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 import { fetchProjectCardsData } from "../assets/data"
-import { sortTags, reduceTags, calculateTags } from "../utils"
+import { calculateTags } from "../utils"
 
 import ProjectCard from "./ProjectCard"
 

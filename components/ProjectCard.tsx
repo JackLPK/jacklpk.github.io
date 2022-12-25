@@ -23,10 +23,6 @@ export default function ProjectCard(props: Props) {
     <img src={project.image} className={styles.card__img} alt={project.alt} />
   )
 
-  // const imgElement = (
-  //   <Image src={project.image} className="card__img" alt={project.alt} width={300} height={200}/>
-  // )
-
   const viewSourceElement = (
     <a href={project.sourceUrl} className={styles.card__url}>
       <Icon name="github" className={styles["card__url-icon"]} color="black" />

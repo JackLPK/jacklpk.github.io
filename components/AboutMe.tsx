@@ -1,6 +1,6 @@
-import React from "react"
 import { Grid, Segment } from "semantic-ui-react"
-import UserIcon from "../images/UserIcon1.svg"
+
+import UserIcon from "../assets/images/UserIcon1.svg"
 import styles from "../styles/AboutMe.module.scss"
 
 export default function AboutMe() {
