@@ -1,0 +1,12 @@
+/* FloatingSurvey */
+@use "abstracts" as a;
+
+.frame {
+  position: relative;
+
+  .floatthis {
+    position: fixed;
+    bottom: 1rem;
+    left: 0;
+  }
+}
