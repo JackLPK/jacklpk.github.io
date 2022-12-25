@@ -35,7 +35,13 @@ export default function SmallSurvey(props: Props) {
     fetch(process.env.NEXT_PUBLIC_BACKEND_ALIVE_URL)
       .then((response) => response.json())
       .then((data) => setIsBackendAlive(data.alive))
-      .catch((err) => setIsBackendAlive(false))
+      .catch((err) => {
+        console.log(
+          `Backend not responding: ${process.env.NEXT_PUBLIC_BACKEND_ALIVE_URL}`
+        )
+        console.error(err)
+        setIsBackendAlive(false)
+      })
 
     const isSurveyFirstTime = (cookies: any): boolean => {
       return cookies["submitted"] !== "true"
