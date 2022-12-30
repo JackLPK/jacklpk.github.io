@@ -65,7 +65,7 @@ export default function Projects() {
   }
 
   return (
-    <section className={styles.projects}>
+    <section className={styles.projects} id="projects">
       <h1 className={styles.projects__title}>Projects</h1>
       <div className={styles.projects__tags}>
         Filter:

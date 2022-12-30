@@ -1,12 +1,27 @@
+import Head from "next/head"
+import Link from "next/link"
 import { Container } from "semantic-ui-react"
 
 import AboutMe from "../components/AboutMe"
 import FloatingSurvey from "../components/FloatingSurvey"
 import Footer from "../components/Footer"
-import Head from "next/head"
 import Hero from "../components/Hero"
 import Projects from "../components/Projects"
 import SocialLinks from "../components/SocialLinks"
+import styles from "../styles/Home.module.scss"
+
+function Navbar() {
+  return (
+    <>
+      <nav className={styles.navbar}>
+        <Link href={"/#projects"}>Projects</Link>
+        <Link href={"/blogs/"} className={styles.pulse}>
+          Blogs
+        </Link>
+      </nav>
+    </>
+  )
+}
 
 type Props = {
   buildTimestamp: string
@@ -22,22 +37,25 @@ export default function Home(props: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Hero />
-      <Container>
-        <AboutMe />
-        <SocialLinks />
-        <FloatingSurvey>
-          <Projects />
-        </FloatingSurvey>
-      </Container>
-      <Footer buildTimestamp={props.buildTimestamp} />
+      <div className={styles.page}>
+        <Navbar />
+        <Hero />
+        <Container>
+          <AboutMe />
+          <SocialLinks />
+          <FloatingSurvey>
+            <Projects />
+          </FloatingSurvey>
+        </Container>
+        <Footer buildTimestamp={props.buildTimestamp} />
+      </div>
     </>
   )
 }
 
 export async function getStaticProps() {
-  const date = new Date()
-  const buildTimestamp = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
+  const dateString = new Date().toISOString()
+  const buildTimestamp = `${dateString.split('T')[0]} ${dateString.split('T')[1].slice(0, 8)}` // prettier-ignore
 
   return {
     props: { buildTimestamp: buildTimestamp },
