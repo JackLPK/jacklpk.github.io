@@ -24,4 +24,12 @@ function calculateTags(cardsArray: CardData[]): TagData[] {
   return pairs
 }
 
-export { calculateTags }
+function dateStringToArray(dateString: string) {
+  // Expect yyyy-mm-dd
+  const date = new Date(dateString)
+  const [dateOnly] = date.toISOString().split("T")
+  const [year, month, day] = dateOnly.split("-")
+  return [year, month, day]
+}
+
+export { calculateTags, dateStringToArray }
