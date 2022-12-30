@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react"
 
-const ThemeContext = createContext()
-const ToggleThemeContext = createContext()
+const ThemeContext = createContext(true)
+const ToggleThemeContext = createContext<Function | null>(null)
 
 export function useDarkTheme() {
   return useContext(ThemeContext)
@@ -11,9 +11,8 @@ export function useToggleDarkTheme() {
   return useContext(ToggleThemeContext)
 }
 
-export function ThemeProvider({ children }) {
+export function ThemeProvider(props: any) {
   const [isDarkTheme, setIsDarkTheme] = useState(true)
-  // const ThemeContext = createContext({ isDarkTheme, setIsDarkTheme })
 
   const toggleDarkTheme = () => {
     setIsDarkTheme((prevState) => !prevState)
@@ -22,7 +21,7 @@ export function ThemeProvider({ children }) {
   return (
     <ThemeContext.Provider value={isDarkTheme}>
       <ToggleThemeContext.Provider value={toggleDarkTheme}>
-        {children}
+        {props.children}
       </ToggleThemeContext.Provider>
     </ThemeContext.Provider>
   )

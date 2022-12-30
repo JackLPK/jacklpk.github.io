@@ -12,15 +12,15 @@ $clr-gray-600: hsl(208, 7%, 46%);
 $clr-gray-700: hsl(210, 9%, 31%);
 $clr-gray-800: hsl(210, 10%, 23%);
 $clr-gray-900: hsl(210, 11%, 15%);
-$clr-primary: #0d6efd;
-$clr-secondary: #6c757d;
+$clr-primary: hsl(320, 53%, 52%); // darken(hsl(320, 53%, 62%), 10);
+$clr-secondary: skyblue;
 
 /* HTML */
 $clr-body-bg: white;
 $clr-code-fg: deeppink;
 $clr-btn-bg-dark: hsl(0, 0%, 30%);
 $clr-btn-light: white;
-$clr-link: darkcyan;
+$clr-link: $clr-primary;
 
 /* Class */
 // $clr-hero-bg: skyblue;

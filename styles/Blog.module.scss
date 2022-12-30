@@ -1,0 +1,70 @@
+@use "abstracts" as a;
+
+.page {
+  min-height: 100vh;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: a.$clr-primary;
+  }
+}
+
+.meta {
+  margin-bottom: 2rem;
+
+  .title {
+    font-weight: bold;
+    font-size: 4rem;
+  }
+
+  .tags {
+    display: inline-flex;
+    color: a.$clr-primary;
+
+    .tag {
+      margin: 0 1em;
+
+      &::before {
+        content: "#";
+        color: lighten($color: a.$clr-primary, $amount: 20);
+        margin-right: 0.1rem;
+      }
+    }
+  }
+}
+
+.content {
+  img {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.prefooter {
+  padding: 2rem 0;
+  .goback {
+    color: a.$clr-btn-light;
+    background-color: a.$clr-btn-bg-dark;
+    padding: 0.8em;
+    border-radius: a.$border-radius-em;
+  }
+}
+
+.linkme {
+  padding: 1em;
+  border-radius: a.$border-radius-em;
+  border-top: 5px dashed a.$clr-black;
+  border-bottom: 5px dashed a.$clr-black;
+  border-left: 5px dashed a.$clr-white;
+  border-right: 5px dashed a.$clr-white;
+  margin: 2rem 0;
+}
+
+.dark {
+  @include a.dark;
+}

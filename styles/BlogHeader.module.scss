@@ -1,0 +1,28 @@
+@use "abstracts" as a;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2rem 0;
+
+  .radio {
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+
+    span {
+      margin-right: 1em;
+    }
+
+    .toggle {
+      font-weight: bold;
+      font-family: a.$font-mono;
+      min-width: 6em;
+    }
+  }
+}
+
+.dark {
+  @include a.dark;
+}

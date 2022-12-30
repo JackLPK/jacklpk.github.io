@@ -16,67 +16,92 @@
   margin-right: 0 !important;
 }
 
+/* My Stuff */
 :root {
   font-size: 18px;
 }
 
 a {
   text-decoration: none;
-  color: var(--clr-link);
+  color: a.$clr-link;
+  &:hover {
+    // color: a.$clr-link;
+    color: lighten(a.$clr-link, 10);
+  }
 }
 
-body {
-  background-color: var(--clr-body-bg);
-  font-family: var(--font-primary);
-}
+// body {
+//   background-color: a.$clr-body-bg;
+//   font-family: a.$font-primary;
+// }
 
-br {
-  margin-bottom: 0.8em;
-}
+// br {
+//   margin-bottom: 0.8em;
+// }
 
-button {
+button,
+.button {
+  color: inherit;
+  background-color: a.$clr-gray-500;
+  // background-color: transparent;
   padding: 0.5em;
-  background-color: hsla(0, 0%, 80%, 0.5);
-  border-radius: var(--border-radius-em);
+  border-radius: a.$border-radius-em;
   border-style: none;
+  cursor: pointer;
   /* margin: 0.4em; */
 }
 
-code,
-.code {
-  font-family: "Source Code Pro", monospace;
+.heading {
+  color: a.$clr-primary;
+}
+
+// code,
+// .code {
+//   font-family: "Source Code Pro", monospace;
+//   font-size: 1rem;
+//   color: a.$clr-code-fg;
+// }
+
+// footer {
+//   width: 100%;
+// }
+
+// h1 {
+//   font-size: 4rem;
+// }
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   color: a.$clr-primary;
+// }
+
+// h3 {
+//   font-size: 3rem;
+// }
+
+// image {
+//   width: 100%;
+//   border-radius: 10px;
+// }
+
+ul {
+  margin: 0 0 1em 2em;
   font-size: 1rem;
-  color: var(--clr-code-fg);
+  li {
+    margin-top: 0.2em;
+  }
 }
 
-footer {
+iframe {
   width: 100%;
-}
-
-h1 {
-  font-size: 4rem;
-}
-
-h2 {
-  font-size: 3.25rem;
-}
-
-h3 {
-  font-size: 3rem;
-}
-
-image {
-  width: 100%;
-  border-radius: 10px;
-}
-
-li {
-  margin-left: 2rem;
 }
 
 p {
   font-size: 1rem;
-  padding-bottom: 0.8em;
 }
 
 /* Icons */
@@ -90,4 +115,31 @@ p {
 
 .icon.linkedin {
   color: a.$clr-icon-linkedin;
+}
+
+blockquote {
+  background: transparent;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+
+  &:before {
+    color: #ccc;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+}
+
+/* For Blog content */
+[class^="Blog_content__"] {
+  & pre {
+    padding: 1em;
+    border-radius: a.$border-radius-px;
+    background-color: a.$clr-gray-800;
+    color: a.$clr-gray-100;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+  }
 }
