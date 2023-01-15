@@ -66,7 +66,7 @@ export default function Blogs(props: Props) {
       <div className={pageStyles}>
         <Container>
           <BlogHeader />
-          <h1>Blogs</h1>
+          <h1 className={styles.page_title}>Blogs</h1>
           {blogs.map((b, i) => {
             return <BlogCard key={i} blogMeta={b.frontmatter} />
           })}

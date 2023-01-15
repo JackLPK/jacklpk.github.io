@@ -11,14 +11,9 @@
     align-items: center;
     margin-left: auto;
 
-    span {
-      margin-right: 1em;
-    }
-
     .toggle {
-      font-weight: bold;
-      font-family: a.$font-mono;
-      min-width: 6em;
+      cursor: pointer;
+      color: a.$clr-primary;
     }
   }
 }

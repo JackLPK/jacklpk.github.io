@@ -1,6 +1,6 @@
 @use "colors" as c;
 
 @mixin dark {
-  color: c.$clr-white;
+  color: c.$clr-gray-100;
   background-color: c.$clr-black;
 }

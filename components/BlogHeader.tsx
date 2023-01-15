@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Icon } from "semantic-ui-react"
 
 import { useDarkTheme, useToggleDarkTheme } from "../contexts/ThemeContext"
 import styles from "../styles/BlogHeader.module.scss"
@@ -19,10 +20,9 @@ export default function BlogHeader() {
         <h1>Home</h1>
       </Link>
       <div className={styles.radio}>
-        <span>Dark? </span>
-        <button className={styles.toggle} onClick={toggleDarkTheme}>
-          {isDarkTheme ? "LIGHT!" : "DARK!"}
-        </button>
+        <div className={styles.toggle} onClick={toggleDarkTheme}>
+          {isDarkTheme ? <Icon name="sun" size="big"/> : <Icon name="moon" size="big"/>}
+        </div>
       </div>
     </div>
   )
