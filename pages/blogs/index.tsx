@@ -23,9 +23,7 @@ function BlogCard({ blogMeta }: BlogCardProps) {
     <>
       <div className={styles.blogcard}>
         <h3 className={styles.title}>
-          <Link
-            href={`/blogs/${blogMeta.created_at_year}/${blogMeta.created_at_month}/${blogMeta.created_at_day}/${blogMeta.slug}`}
-          >
+          <Link href={`/blogs/${blogMeta.slug}`}>
             {blogMeta.title}
           </Link>
         </h3>
