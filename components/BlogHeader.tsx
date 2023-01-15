@@ -16,12 +16,18 @@ export default function BlogHeader() {
 
   return (
     <div className={headerStyles}>
-      <Link href={"/blogs"}>
-        <h1>Home</h1>
-      </Link>
+      <nav>
+        <Link href={"/blogs"}>
+          <h1>Home</h1>
+        </Link>
+      </nav>
       <div className={styles.radio}>
         <div className={styles.toggle} onClick={toggleDarkTheme}>
-          {isDarkTheme ? <Icon name="sun" size="big"/> : <Icon name="moon" size="big"/>}
+          {isDarkTheme ? (
+            <Icon name="sun" size="big" />
+          ) : (
+            <Icon name="moon" size="big" />
+          )}
         </div>
       </div>
     </div>
