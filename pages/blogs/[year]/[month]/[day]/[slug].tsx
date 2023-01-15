@@ -103,10 +103,11 @@ export default function Blog(props: Props) {
 export async function getStaticProps(context: any) {
   const { params } = context
 
+  const blogsDir = path.resolve(process.env.NEXT_PUBLIC_BLOG_DIR as string)
+
   const markdownWithMeta = fs.readFileSync(
     path.join(
-      "assets",
-      "blogs",
+      blogsDir,
       `${params.year}-${params.month}-${params.day} ${params.slug}.md`
     ),
     "utf-8"
@@ -127,21 +128,26 @@ export async function getStaticProps(context: any) {
 }
 
 export async function getStaticPaths() {
-  const fileNames = fs.readdirSync(path.join("assets", "blogs"))
+  const blogsDir = path.resolve(process.env.NEXT_PUBLIC_BLOG_DIR as string)
 
-  const paths = fileNames.map((fileName) => {
-    const [dateString, slug] = fileName.split(" ")
-    const [year, month, day] = dateStringToArray(dateString)
+  const fileNames = fs.readdirSync(blogsDir)
+  // const fileNames = fs.readdirSync(path.join("assets", "blogs"))
 
-    return {
-      params: {
-        year,
-        month,
-        day,
-        slug: slug.replace(".md", ""),
-      },
-    }
-  })
+  const paths = fileNames
+    .filter((filename) => path.extname(filename) == ".md")
+    .map((fileName) => {
+      const [dateString, slug] = fileName.split(" ")
+      const [year, month, day] = dateStringToArray(dateString)
+
+      return {
+        params: {
+          year,
+          month,
+          day,
+          slug: slug.replace(".md", ""),
+        },
+      }
+    })
 
   return { paths, fallback: false }
 }

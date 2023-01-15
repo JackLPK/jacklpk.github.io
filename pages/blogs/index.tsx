@@ -77,27 +77,56 @@ export default function Blogs(props: Props) {
 }
 
 export async function getStaticProps() {
-  const blogsDir = path.join("assets", "blogs")
+  const blogsDir = path.resolve(process.env.NEXT_PUBLIC_BLOG_DIR as string)
 
+  /* 
+    Copy images directory 
+  */
+  const localImagesDir = path.join(blogsDir, "images", "blogs") // need "blogs" for namespacing
+  const publicImagesDir = path.resolve("public", "images", "blogs")
+
+  if (!fs.existsSync(localImagesDir)) {
+    throw new Error(`Images Directory Not Found: ${localImagesDir}`)
+  }
+
+  const localImages = fs.readdirSync(localImagesDir)
+  const publicImages = fs.readdirSync(publicImagesDir)
+
+  const newImages = localImages.filter((value) => !publicImages.includes(value))
+  console.log("New Images to copy:")
+  console.table(newImages)
+
+  newImages.forEach((filename) => {
+    console.log(`Copying ${filename}`)
+    const srcFile = path.join(localImagesDir, filename)
+    const destFile = path.join(publicImagesDir, filename)
+    console.log(`${srcFile} => \n  ${destFile}`)
+    fs.copyFileSync(srcFile, destFile)
+  })
+
+  /* 
+    Parse Markdown files 
+  */
   const fileNames = fs.readdirSync(blogsDir)
   // console.log(fileNames)
 
-  const blogs = fileNames.map((fp) => {
-    const markdownWithMeta = fs.readFileSync(path.join(blogsDir, fp), "utf-8")
+  const blogs = fileNames
+    .filter((filename) => path.extname(filename) == ".md")
+    .map((fp) => {
+      const markdownWithMeta = fs.readFileSync(path.join(blogsDir, fp), "utf-8")
+      const { data: frontmatter, content } = matter(markdownWithMeta)
 
-    const { data: frontmatter, content } = matter(markdownWithMeta)
+      for (const key of ["created_at", "updated_at"]) {
+        const [year, month, day] = frontmatter[key].split("-")
+        frontmatter[`${key}_year`] = year
+        frontmatter[`${key}_month`] = month
+        frontmatter[`${key}_day`] = day
+      }
 
-    for (const key of ["created_at", "updated_at"]) {
-      const [year, month, day] = frontmatter[key].split("-")
-      frontmatter[`${key}_year`] = year
-      frontmatter[`${key}_month`] = month
-      frontmatter[`${key}_day`] = day
-    }
-
-    return {
-      frontmatter: frontmatter,
-    }
-  })
+      return {
+        frontmatter: frontmatter,
+      }
+    })
 
   return {
     props: {
