@@ -35,6 +35,7 @@ export default function Home(props: Props) {
         <meta name="description" content="I am Jack, a Computer Science student from University of Nottingham. I love learning new tech, building projects, and sharing my experience. I have experience in Machine Learning, full stack web development, Python, JavaScript, R, Java, Linux..." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="PKLJack"/>
+        <meta name="google-site-verification" content="oUpuPUQv7YvZejqbVBaI4xwvrcxO6xftiekO8gSXzgc" />
 
         {/* Twitter tags */}
         <meta name="twitter:card" content="summary"/>
