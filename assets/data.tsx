@@ -8,6 +8,22 @@ import { CardData } from "../models"
 
 const data: CardData[] = [
   {
+    title: "Screen Saver",
+    image: "/images/crop/react-screen-saver-1.png",
+    alt: "Checksum Program",
+    date: "2023-02-29",
+    description: (
+      <p>
+        A simple screen saver.
+        <br />
+        Build with React.
+      </p>
+    ),
+    sourceUrl: "https://github.com/PKLJack/react-screen-saver",
+    siteUrl: "https://pkljack-react-screen-saver.netlify.app/",
+    tags: ["ReactJS", "JavaScript", "TypeScript", "NextJS"],
+  },
+  {
     title: "Checksum Program",
     image: "/images/crop/ghash-01-crop.png",
     alt: "Checksum Program",
