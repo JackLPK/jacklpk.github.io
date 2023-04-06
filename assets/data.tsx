@@ -24,22 +24,6 @@ const data: CardData[] = [
     tags: ["ReactJS", "JavaScript", "TypeScript", "NextJS"],
   },
   {
-    title: "Checksum Program",
-    image: "/images/crop/ghash-01-crop.png",
-    alt: "Checksum Program",
-    date: "2022-12-12",
-    description: (
-      <p>
-        A Checksum Program.
-        <br />
-        Build with PySide6.
-      </p>
-    ),
-    sourceUrl: "https://github.com/PKLJack/ghash",
-    siteUrl: null,
-    tags: ["Python", "Qt", "PySide6"],
-  },
-  {
     title: "QR Code Generator",
     image: "/images/crop/qrcode-generator-react-1-crop.png",
     alt: "QR Code Generator",
@@ -148,6 +132,22 @@ const data: CardData[] = [
     sourceUrl: "https://github.com/PKLJack/react-memory-game",
     siteUrl: "https://pkljack-memorygame-react.netlify.app/",
     tags: ["ReactJS", "JavaScript"],
+  },
+  {
+    title: "Checksum Program",
+    image: "/images/crop/ghash-01-crop.png",
+    alt: "Checksum Program",
+    date: "2022-12-12",
+    description: (
+      <p>
+        A Checksum Program.
+        <br />
+        Build with PySide6.
+      </p>
+    ),
+    sourceUrl: "https://github.com/PKLJack/ghash",
+    siteUrl: null,
+    tags: ["Python", "Qt", "PySide6"],
   },
 ]
 
