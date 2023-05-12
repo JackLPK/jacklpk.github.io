@@ -66,7 +66,7 @@ export default function Home(props: Props) {
 
 export async function getStaticProps() {
   const dateString = new Date().toISOString()
-  const buildTimestamp = `${dateString.split('T')[0]} ${dateString.split('T')[1].slice(0, 8)}` // prettier-ignore
+  const buildTimestamp = `${dateString.split('T')[0]} ${dateString.split('T')[1].slice(0, 8)} UTC` // prettier-ignore
 
   return {
     props: { buildTimestamp: buildTimestamp },
