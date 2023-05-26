@@ -10,7 +10,7 @@ const data: CardData[] = [
   {
     title: "Screen Saver",
     image: "/images/crop/react-screen-saver-1.png",
-    alt: "Checksum Program",
+    alt: "Screen Saver",
     date: "2023-02-29",
     description: (
       <p>
