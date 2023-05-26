@@ -8,6 +8,22 @@ import { CardData } from "../models"
 
 const data: CardData[] = [
   {
+    title: "Todo App",
+    image: "/images/crop/django-todo-1.png",
+    alt: "Todo app",
+    date: "2023-05-26",
+    description: (
+      <p>
+        A simple Todo app.
+        <br />
+        Build with Django.
+      </p>
+    ),
+    sourceUrl: "https://github.com/PKLJack/django-simple-todo-app",
+    siteUrl: null,
+    tags: ["Python", "Django"],
+  },
+  {
     title: "Screen Saver",
     image: "/images/crop/react-screen-saver-1.png",
     alt: "Screen Saver",
