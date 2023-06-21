@@ -1,5 +1,7 @@
+import Image from "next/image"
 import React from "react"
 import { Icon } from "semantic-ui-react"
+
 import { CardData } from "../models"
 import styles from "../styles/ProjectCard.module.scss"
 
@@ -20,7 +22,16 @@ export default function ProjectCard(props: Props) {
   const { project } = props
 
   const imgElement = (
-    <img src={project.image} className={styles.card__img} alt={project.alt} />
+    <>
+      {/* <img src={project.image} className={styles.card__img} alt={project.alt} /> */}
+      <Image
+        src={project.image}
+        className={styles.card__img}
+        width={420}
+        height={280}
+        alt={project.alt}
+      />
+    </>
   )
 
   const viewSourceElement = (
