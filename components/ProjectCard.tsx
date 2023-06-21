@@ -56,7 +56,10 @@ export default function ProjectCard(props: Props) {
     <div className={styles.card}>
       {imgElement}
       <h3 className={styles.card__title}>{project.title}</h3>
-      <div className={styles.card__body}>{project.description}</div>
+      {/* <div className={styles.card__body}>{project.descriptionJSX}</div> */}
+      <div className={styles.card__body}>
+        <p dangerouslySetInnerHTML={{ __html: project.descriptionHtml }}></p>
+      </div>
       <div className={styles.card__urls}>
         {project.siteUrl && getViewSiteElement()}
         {project.sourceUrl && viewSourceElement}

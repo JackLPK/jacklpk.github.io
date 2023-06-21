@@ -3,7 +3,8 @@ export type CardData = {
   image: string
   alt: string
   date: string | null
-  description: JSX.Element
+  descriptionJSX: JSX.Element
+  descriptionHtml: string
   sourceUrl: string
   siteUrl: string | null
   tags: string[]
