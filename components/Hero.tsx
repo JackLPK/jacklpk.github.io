@@ -1,5 +1,6 @@
 import React from "react"
 import TypeIt from "typeit-react"
+
 import styles from "../styles/Hero.module.scss"
 
 export default function Hero() {

@@ -1,5 +1,5 @@
-import SmallSurvey from "./SmallSurvey"
 import styles from "../styles/FloatingSurvey.module.scss"
+import SmallSurvey from "./SmallSurvey"
 
 export default function FloatingSurvey(props: any) {
   return (

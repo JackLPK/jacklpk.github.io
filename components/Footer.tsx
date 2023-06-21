@@ -1,5 +1,6 @@
 import React from "react"
 import { Popup } from "semantic-ui-react"
+
 import styles from "../styles/Footer.module.scss"
 
 type Props = {

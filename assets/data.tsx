@@ -1,4 +1,5 @@
 import React from "react"
+
 import { CardData } from "../models"
 
 /* 
@@ -6,6 +7,7 @@ import { CardData } from "../models"
   wrap description in <p></p>
 */
 
+// prettier-ignore
 const data: CardData[] = [
   {
     title: "Todo App",

@@ -1,12 +1,10 @@
 import React, { useState } from "react"
+import { Icon } from "semantic-ui-react"
 
 import { fetchProjectCardsData } from "../assets/data"
-import { calculateTags } from "../utils"
-
-import ProjectCard from "./ProjectCard"
-
 import styles from "../styles/Projects.module.scss"
-import { Icon } from "semantic-ui-react"
+import { calculateTags } from "../utils"
+import ProjectCard from "./ProjectCard"
 
 const NO_TAG = "" // Means not filtering anything
 

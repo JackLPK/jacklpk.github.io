@@ -30,6 +30,7 @@ type Props = {
 export default function Home(props: Props) {
   return (
     <>
+      {/* prettier-ignore */}
       <Head>
         <title>PKLJack&apos;s Website</title>
         <meta name="description" content="I am Jack, a Computer Science student from University of Nottingham. I love learning new tech, building projects, and sharing my experience. I have experience in Machine Learning, full stack web development, Python, JavaScript, R, Java, Linux..." />

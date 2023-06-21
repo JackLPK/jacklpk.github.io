@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react"
+import { useCookies } from "react-cookie"
+import { Icon, Segment } from "semantic-ui-react"
+
 import EMOJI_1 from "../assets/images/emojis/emoji-1-very_bad.svg"
 import EMOJI_2 from "../assets/images/emojis/emoji-2-poor.svg"
 import EMOJI_3 from "../assets/images/emojis/emoji-3-medium.svg"
 import EMOJI_4 from "../assets/images/emojis/emoji-4-good.svg"
 import EMOJI_5 from "../assets/images/emojis/emoji-5-excellent.svg"
 import styles from "../styles/SmallSurvey.module.scss"
-import { useCookies } from "react-cookie"
-import { Icon, Segment } from "semantic-ui-react"
 
 const SURVEY_SHOW_TIME = 5000 // 5 seconds
 

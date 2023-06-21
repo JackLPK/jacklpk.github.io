@@ -1,4 +1,5 @@
 import { Icon } from "semantic-ui-react"
+
 import styles from "../styles/SocialLinks.module.scss"
 
 export default function SocialLinks() {
