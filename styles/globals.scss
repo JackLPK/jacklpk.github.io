@@ -1,145 +1,67 @@
 /* globals */
-@use "abstracts" as a;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: a.$font-primary;
-  // outline: hsla(350, 100%, 88%, 0.4) solid 1px;
-}
-
-/* Patch for semantic ui */
-/* Disable left right margin on mobile */
-.ui.fluid.container {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-/* My Stuff */
-:root {
-  font-size: 18px;
-}
-
-a {
-  text-decoration: none;
-  color: a.$clr-link;
-  &:hover {
-    // color: a.$clr-link;
-    color: lighten(a.$clr-link, 10);
-  }
-}
-
-// body {
-//   background-color: a.$clr-body-bg;
-//   font-family: a.$font-primary;
-// }
-
-// br {
-//   margin-bottom: 0.8em;
-// }
-
-button,
-.button {
-  color: inherit;
-  background-color: a.$clr-gray-500;
-  // background-color: transparent;
-  padding: 0.5em;
-  border-radius: a.$border-radius-em;
-  border-style: none;
-  cursor: pointer;
-  /* margin: 0.4em; */
-}
-
-.heading {
-  color: a.$clr-primary;
-}
-
-// code,
-// .code {
-//   font-family: "Source Code Pro", monospace;
-//   font-size: 1rem;
-//   color: a.$clr-code-fg;
-// }
-
-// footer {
-//   width: 100%;
-// }
-
-// h1 {
-//   font-size: 4rem;
-// }
-
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6 {
-//   color: a.$clr-primary;
-// }
-
-// h3 {
-//   font-size: 3rem;
-// }
-
-// image {
-//   width: 100%;
-//   border-radius: 10px;
-// }
-
-ul {
-  margin: 0 0 1em 2em;
-  font-size: 1rem;
-  li {
-    margin-top: 0.2em;
-  }
-}
-
-iframe {
-  width: 100%;
-}
-
-p {
-  font-size: 1rem;
-}
-
-/* Icons */
-.icon.github {
-  color: a.$clr-btn-light;
-}
-
-.icon.twitter {
-  color: a.$clr-icon-twitter;
-}
-
-.icon.linkedin {
-  color: a.$clr-icon-linkedin;
-}
-
-blockquote {
-  background: transparent;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-
-  &:before {
-    color: #ccc;
-    font-size: 4em;
-    line-height: 0.1em;
-    margin-right: 0.25em;
-    vertical-align: -0.4em;
+@layer base {
+  br {
+    @apply mb-3;
   }
 }
 
 /* For Blog content */
-[class^="Blog_content__"] {
-  & pre {
-    padding: 1em;
-    border-radius: a.$border-radius-px;
-    background-color: a.$clr-gray-800;
-    color: a.$clr-gray-100;
-    margin-bottom: 1rem;
-    overflow-x: auto;
+.blog_content {
+  // * { outline: solid 1px red; }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mb-2 mt-3 text-primary;
+  }
+
+  h1 {
+    @apply text-6xl;
+  }
+
+  h2 {
+    @apply mb-4 mt-6 text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  p {
+    @apply mb-2 mt-1 text-lg;
+  }
+
+  a {
+    @apply text-lg text-primary;
+  }
+
+  blockquote {
+    @apply mx-2 my-8 border-l-8 border-stone-400 px-6 py-6;
+  }
+
+  img {
+    @apply mx-auto my-4 w-full max-w-lg dark:brightness-90 lg:w-4/5;
+  }
+
+  iframe {
+    // width: 100%;
+    @apply mx-auto my-2;
+  }
+
+  pre {
+    @apply mx-auto my-4 w-[95%] overflow-x-auto rounded-md bg-slate-800 p-4 font-mono text-lg text-slate-200;
+  }
+
+  ul {
+    @apply list-disc py-2 pl-7 text-lg;
+
+    // li { @apply list-disc; }
   }
 }
