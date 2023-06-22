@@ -1,7 +1,4 @@
-import React from "react"
 import TypeIt from "typeit-react"
-
-import styles from "../styles/Hero.module.scss"
 
 export default function Hero() {
   const typeItConfig = {
@@ -25,13 +22,15 @@ export default function Hero() {
   }
 
   return (
-    <div className={styles.hero}>
-      <div className={styles.hero__text}>Hello!</div>
-      <TypeIt
-        className={styles.hero__text}
-        getBeforeInit={typeItConfig.getBeforeInit}
-        as="div"
-      />
-    </div>
+    <>
+      <div className="flex min-h-[70vh] flex-col items-center justify-center bg-sky-300 text-center font-mono text-7xl font-bold">
+        <div className="">Hello!</div>
+        <TypeIt
+          className="max-w-[93%]"
+          getBeforeInit={typeItConfig.getBeforeInit}
+          as="div"
+        />
+      </div>
+    </>
   )
 }

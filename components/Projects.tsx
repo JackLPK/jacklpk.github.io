@@ -1,9 +1,7 @@
-import React, { useState } from "react"
-import { Icon } from "semantic-ui-react"
+import { useState } from "react"
 
 import { fetchProjectCardsData } from "../assets/data"
-import styles from "../styles/Projects.module.scss"
-import { calculateTags } from "../utils"
+import { calculateTags } from "../lib/utilsClient"
 import ProjectCard from "./ProjectCard"
 
 const NO_TAG = "" // Means not filtering anything
@@ -18,10 +16,11 @@ function ClearFilterButton(props: Props) {
     <>
       <span
         onClick={props.handleClick}
-        style={{ visibility: props.isEmpty ? "hidden" : "visible" }}
-        className={styles["clear-btn"]}
+        className={`cursor-pointer px-3 ${
+          props.isEmpty && "font-bold text-slate-600 underline"
+        } `}
       >
-        <Icon name="times circle outline" size="large" color="grey" />
+        All
       </span>
     </>
   )
@@ -37,12 +36,13 @@ export default function Projects() {
     setCurrTag(tagText)
   }
 
-  const tagsElements = orderedTags.map((tag, idx) => {
-    const className = `${styles.tag} ${currTag === tag.name && styles["tag--active"]}` // prettier-ignore
+  const tagsElements = orderedTags.map((tag) => {
     return (
       <span
-        key={idx}
-        className={className}
+        key={tag.name}
+        className={`text-primary ${
+          currTag === tag.name && "font-bold underline"
+        }`}
         onClick={(event) => handleTagClick(event, tag.name)}
       >
         {tag.name} ({tag.count})
@@ -63,17 +63,20 @@ export default function Projects() {
   }
 
   return (
-    <section className={styles.projects} id="projects">
-      <h1 className={styles.projects__title}>Projects</h1>
-      <div className={styles.projects__tags}>
-        Filter:
+    <section className="container mt-8 px-1" id="projects">
+      <h1 className="mb-2 border-b-4 border-slate-400 pb-3 text-5xl">
+        Projects
+      </h1>
+      <div className="mb-4 flex flex-wrap gap-3 rounded-md bg-slate-200 p-2">
         <ClearFilterButton
           isEmpty={currTag === NO_TAG}
           handleClick={clearFilterTags}
         />
         {tagsElements}
       </div>
-      <div className={styles.projects__cards}>{projectCardElements}</div>
+      <div className="mx-auto grid max-w-6xl grid-cols-1 place-content-center place-items-center gap-8 md:grid-cols-2 md:place-items-stretch md:justify-items-center">
+        {projectCardElements}
+      </div>
     </section>
   )
 }

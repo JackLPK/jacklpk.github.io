@@ -1,38 +1,28 @@
-import fs from "fs"
-import path from "path"
-
-import matter from "gray-matter"
 import { marked } from "marked"
 import Head from "next/head"
 import Link from "next/link"
-import { Container } from "semantic-ui-react"
 
-import BlogHeader from "../../components/BlogHeader"
+import DarkThemeButton from "../../components/DarkThemeButton"
+import { ArrowLeftIcon } from "../../components/Icons"
 import SocialLinks from "../../components/SocialLinks"
-import { useDarkTheme } from "../../contexts/ThemeContext"
-import styles from "../../styles/Blog.module.scss"
-
-type Props = {
-  frontmatter: any
-  content: string
-  year: string
-  month: string
-  day: string
-  slug: string
-}
+import { getBlogs, getBlogSlugs } from "../../lib/utilsServer"
+import { Blog as BlogType } from "../../models"
 
 function LinkMe() {
   return (
     <>
-      <div className={styles.linkme}>
-        <h2>PKLJack</h2>
-        <p>
+      <div className="space-y-4 rounded-xl bg-stone-200 p-5 dark:bg-stone-700">
+        <h2 className="text-3xl font-bold text-primary">PKLJack</h2>
+        <p className="text-md">
           Personal blog by{" "}
-          <a href="https://www.linkedin.com/in/pui-kit-li-793555177/">
+          <a
+            href="https://www.linkedin.com/in/pui-kit-li-793555177/"
+            className="font-bold"
+          >
             PKLJack
           </a>
         </p>
-        <p>
+        <p className="text-md">
           I <strong>learn</strong>, I <strong>build</strong>, I{" "}
           <strong>share</strong>
         </p>
@@ -42,25 +32,33 @@ function LinkMe() {
   )
 }
 
-export default function Blog(props: Props) {
+function BackButton() {
+  return (
+    <Link href={"/blogs"} className="flex items-center gap-2 text-primary">
+      <ArrowLeftIcon />
+      Back
+    </Link>
+  )
+}
+
+export default function Blog(props: BlogType) {
   const {
     frontmatter: { title, tags, created_at, excerpt },
     content,
   } = props
 
-  const isDarkTheme = useDarkTheme()
-
-  const pageStyles = `${styles.page} ${isDarkTheme && styles.dark}`
-
-  if (!Array.isArray(tags)) {
-    throw "Wrong type"
-  }
-
-  const tagElements = tags.map((text, i) => (
-    <span key={i} className={styles.tag}>
-      {text}
-    </span>
-  ))
+  const tagElements = (
+    <div>
+      Tags:
+      <ul className="ml-2 inline-flex flex-row gap-3">
+        {tags.map((text, i) => (
+          <li key={i} className="text-primary before:content-['#']">
+            {text}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 
   return (
     <>
@@ -68,84 +66,58 @@ export default function Blog(props: Props) {
         <title>{`${title} — PKLJack`}</title>
         <meta name="description" content={excerpt} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="author" content="PKLJack"/>
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="author" content="PKLJack" />
+        <link rel="icon" href="/icons/favicon.ico" />
       </Head>
-      <div className={pageStyles}>
-        <Container className={styles.blog}>
-          <BlogHeader />
-          <main>
-            <article>
-              <div className={styles.meta}>
-                <h1 className={styles.title}>{title}</h1>
-                <div>Posted on: {created_at}</div>
-                <div>
-                  Tags: <span className={styles.tags}>{tagElements}</span>
-                </div>
-              </div>
-              <div
-                className={styles.content}
-                dangerouslySetInnerHTML={{ __html: marked.parse(content) }}
-              ></div>
-            </article>
-            <div className={styles.prefooter}>
-              <LinkMe />
-              <Link href={"/blogs"} className={styles.goback}>
-                Go Back
-              </Link>
-            </div>
-          </main>
-        </Container>
+      <div className="min-h-screen bg-stone-100 px-4 dark:bg-stone-900 dark:text-slate-200">
+        <main className="container">
+          <div className="flex items-center justify-between py-10">
+            <BackButton />
+            <DarkThemeButton />
+          </div>
+          <article className="">
+            <h1 className="pb-10 text-6xl font-bold text-primary">{title}</h1>
+            {/* Meta */}
+            <div>Posted on: {created_at}</div>
+            {tagElements}
+            {/* Blog */}
+            <div
+              className="blog_content"
+              dangerouslySetInnerHTML={{ __html: marked.parse(content) }}
+            ></div>
+          </article>
+          <LinkMe />
+          <div className="py-10">
+            <BackButton />
+          </div>
+        </main>
       </div>
     </>
   )
 }
 
-export async function getStaticProps(context: any) {
-  const { params } = context
-
-  const localBlogsDir = path.resolve(process.env.NEXT_PUBLIC_BLOG_DIR as string)
-
-  // prettier-ignore
-  const blogFileName = fs.readdirSync(localBlogsDir)
-    .find((filename) => filename.includes(params.slug))
-
-  if (blogFileName === undefined) {
-    throw new Error(`File Not Found: ${blogFileName}`)
-  }
-
-  const markdownWithMeta = fs.readFileSync(
-    path.join(localBlogsDir, blogFileName),
-    "utf-8"
-  )
-
-  const { data: frontmatter, content } = matter(markdownWithMeta)
-
-  return {
-    props: {
-      frontmatter,
-      content,
-      slug: params.slug,
-    },
+type ContextType = {
+  params: {
+    slug: string
   }
 }
 
+export async function getStaticProps(context: ContextType) {
+  const {
+    params: { slug },
+  } = context
+
+  const blog = getBlogs().filter((blog) => blog.frontmatter.slug === slug)[0]
+
+  return { props: blog }
+}
+
 export async function getStaticPaths() {
-  const localBlogsDir = path.resolve(process.env.NEXT_PUBLIC_BLOG_DIR as string)
+  const paths = getBlogSlugs().map((slug: string) => {
+    return {
+      params: { slug },
+    }
+  })
 
-  const fileNames = fs.readdirSync(localBlogsDir)
-
-  const paths = fileNames
-    .filter((filename) => path.extname(filename) == ".md")
-    .map((fileName) => {
-      const [dateString, slug] = fileName.split(" ")
-
-      return {
-        params: {
-          slug: slug.replace(".md", ""),
-        },
-      }
-    })
-
-  return { paths, fallback: false }
+  return { paths: paths, fallback: false }
 }

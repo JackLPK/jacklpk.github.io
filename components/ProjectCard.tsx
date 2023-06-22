@@ -1,17 +1,7 @@
 import Image from "next/image"
-import React from "react"
-import { Icon } from "semantic-ui-react"
 
 import { CardData } from "../models"
-import styles from "../styles/ProjectCard.module.scss"
-
-/* 
-  <img 
-    src={project.image} 
-    className="card-image" 
-    alt={project.alt}
-  />
-*/
+import { ArrowRightIcon, GithubIcon } from "./Icons"
 
 type Props = {
   project: CardData
@@ -23,10 +13,9 @@ export default function ProjectCard(props: Props) {
 
   const imgElement = (
     <>
-      {/* <img src={project.image} className={styles.card__img} alt={project.alt} /> */}
       <Image
         src={project.image}
-        className={styles.card__img}
+        className="w-full rounded-lg bg-sky-300 object-cover"
         width={420}
         height={280}
         alt={project.alt}
@@ -35,8 +24,8 @@ export default function ProjectCard(props: Props) {
   )
 
   const viewSourceElement = (
-    <a href={project.sourceUrl} className={styles.card__url}>
-      <Icon name="github" className={styles["card__url-icon"]} color="black" />
+    <a href={project.sourceUrl} className="flex flex-row items-center gap-2">
+      <GithubIcon />
       View Source
     </a>
   )
@@ -44,8 +33,8 @@ export default function ProjectCard(props: Props) {
   const getViewSiteElement = () => {
     // Just use ts-ignore
     return project.siteUrl ? (
-      <a href={project.siteUrl} className={styles["card__url"]}>
-        <Icon name="arrow right" className={styles["card__url-icon"]} />
+      <a href={project.siteUrl} className="flex flex-row items-center gap-2">
+        <ArrowRightIcon />
         View Site
       </a>
     ) : (
@@ -56,7 +45,7 @@ export default function ProjectCard(props: Props) {
   const tagsElements = project.tags.map((tagText: string, idx: number) => (
     <span
       key={idx}
-      className={styles.tag}
+      className="cursor-pointer text-primary before:content-['#']"
       onClick={(e) => props.handleTagClick(e, tagText)}
     >
       {tagText}
@@ -64,18 +53,23 @@ export default function ProjectCard(props: Props) {
   ))
 
   return (
-    <div className={styles.card}>
+    <div className="flex max-w-md flex-col rounded-lg bg-slate-200 pb-4">
       {imgElement}
-      <h3 className={styles.card__title}>{project.title}</h3>
-      {/* <div className={styles.card__body}>{project.descriptionJSX}</div> */}
-      <div className={styles.card__body}>
-        <p dangerouslySetInnerHTML={{ __html: project.descriptionHtml }}></p>
-      </div>
-      <div className={styles.card__urls}>
+      <h3 className="px-4 pt-3 text-4xl font-bold">{project.title}</h3>
+
+      <p
+        className="grow p-4 text-lg"
+        dangerouslySetInnerHTML={{ __html: project.descriptionHtml }}
+      ></p>
+
+      <div className="px-4">
         {project.siteUrl && getViewSiteElement()}
         {project.sourceUrl && viewSourceElement}
       </div>
-      <div className={styles.card__tags}>{tagsElements}</div>
+
+      <div className="mt-2 flex flex-wrap gap-3 justify-self-end px-4">
+        {tagsElements}
+      </div>
     </div>
   )
 }

@@ -1,20 +1,36 @@
-import { Icon } from "semantic-ui-react"
-
-import styles from "../styles/SocialLinks.module.scss"
+import {
+  GITHUB_COLOR,
+  GithubIcon,
+  LINKEDIN_COLOR,
+  LinkedinIcon,
+  TWITTER_COLOR,
+  TwitterIcon,
+} from "./Icons"
 
 export default function SocialLinks() {
   return (
     <>
-      {/* prettier-ignore */}
-      <div className={styles["social-links"]}>
-        <a href="https://github.com/PKLJack" className={styles["social-links__btn"]}>
-          <Icon name="github"/><span>Github</span> 
+      <div className="flex justify-center gap-3 font-bold">
+        <a
+          href="https://github.com/PKLJack"
+          className="flex items-center gap-2 rounded-md bg-neutral-700 px-3 py-2 text-white hover:bg-neutral-800 hover:shadow-lg"
+        >
+          <GithubIcon fill={GITHUB_COLOR} />
+          GitHub
         </a>
-        <a href="https://twitter.com/PKL_Jack" className={styles["social-links__btn"]}>
-          <Icon name="linkedin"/><span>Twitter</span>
+        <a
+          href="https://www.linkedin.com/in/pui-kit-li-793555177/"
+          className="flex items-center gap-2 rounded-md bg-neutral-700 px-3 py-2 text-white hover:bg-neutral-800 hover:shadow-lg"
+        >
+          <LinkedinIcon fill={LINKEDIN_COLOR} />
+          LinkedIn
         </a>
-        <a href="https://www.linkedin.com/in/pui-kit-li-793555177/" className={styles["social-links__btn"]}>
-          <Icon name="twitter"/><span>LinkedIn</span>
+        <a
+          href="https://twitter.com/PKL_Jack"
+          className="flex items-center gap-2 rounded-md bg-neutral-700 px-3 py-2 text-white hover:bg-neutral-800 hover:shadow-lg"
+        >
+          <TwitterIcon fill={TWITTER_COLOR} />
+          Twitter
         </a>
       </div>
     </>

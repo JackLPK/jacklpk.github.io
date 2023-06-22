@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react"
 
-const ThemeContext = createContext(true)
+const ThemeContext = createContext(false)
 const ToggleThemeContext = createContext<Function | null>(null)
 
 export function useDarkTheme() {
@@ -12,7 +12,7 @@ export function useToggleDarkTheme() {
 }
 
 export function ThemeProvider(props: any) {
-  const [isDarkTheme, setIsDarkTheme] = useState(true)
+  const [isDarkTheme, setIsDarkTheme] = useState(false)
 
   const toggleDarkTheme = () => {
     setIsDarkTheme((prevState) => !prevState)

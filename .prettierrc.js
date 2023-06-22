@@ -15,4 +15,5 @@ module.exports = {
   importOrderCombineTypeAndValueImports: true,
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
+  plugins: [require("prettier-plugin-tailwindcss")],
 }

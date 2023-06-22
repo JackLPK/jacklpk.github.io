@@ -1,6 +1,10 @@
-import { CardData, TagData } from "./models"
+/* 
+  Utilities for client side
+*/
 
-/* Returns descending ordered TagData[] */
+import { CardData, TagData } from "../models"
+
+/** Returns descending ordered TagData[] */
 function calculateTags(cardsArray: CardData[]): TagData[] {
   const counter: any = {}
 
@@ -14,9 +18,9 @@ function calculateTags(cardsArray: CardData[]): TagData[] {
     }
   }
 
-  const pairs = Object.keys(counter).map((key) => ({
-    name: key,
-    count: counter[key],
+  const pairs = Object.keys(counter).map((tag) => ({
+    name: tag,
+    count: counter[tag],
   }))
 
   pairs.sort((a, b) => b.count - a.count)

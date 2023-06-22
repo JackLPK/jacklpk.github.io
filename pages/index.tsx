@@ -1,21 +1,18 @@
 import Head from "next/head"
 import Link from "next/link"
-import { Container } from "semantic-ui-react"
 
 import AboutMe from "../components/AboutMe"
-import FloatingSurvey from "../components/FloatingSurvey"
 import Footer from "../components/Footer"
 import Hero from "../components/Hero"
 import Projects from "../components/Projects"
 import SocialLinks from "../components/SocialLinks"
-import styles from "../styles/Home.module.scss"
 
 function Navbar() {
   return (
     <>
-      <nav className={styles.navbar}>
+      <nav className="absolute mt-3 flex w-full justify-center space-x-20 text-3xl font-bold text-slate-600 underline">
         <Link href={"/#projects"}>Projects</Link>
-        <Link href={"/blogs/"} className={styles.pulse}>
+        <Link href={"/blogs/"} className="animate-none">
           Blogs
         </Link>
       </nav>
@@ -46,21 +43,15 @@ export default function Home(props: Props) {
         <meta name="twitter:description" content="Hi there! I am Jack, a Computer Science student from University of Nottingham. I love learning new tech, building projects, and sharing my experience. I have experience in Machine Learning, full stack web development, Python, JavaScript, R, Java, Linux..."/>
         <meta name="twitter:image" content="https://pkljack.github.io/icons/android-chrome-512x512.png"/>
 
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icons/favicon.ico" />
       </Head>
 
-      <div className={styles.page}>
-        <Navbar />
-        <Hero />
-        <Container>
-          <AboutMe />
-          <SocialLinks />
-          <FloatingSurvey>
-            <Projects />
-          </FloatingSurvey>
-        </Container>
-        <Footer buildTimestamp={props.buildTimestamp} />
-      </div>
+      <Navbar />
+      <Hero />
+      <AboutMe />
+      <SocialLinks />
+      <Projects />
+      <Footer buildTimestamp={props.buildTimestamp} />
     </>
   )
 }

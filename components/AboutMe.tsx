@@ -1,12 +1,11 @@
-import { Grid, Segment } from "semantic-ui-react"
+import Image from "next/image"
 
-import UserIcon from "../assets/images/UserIcon1.svg"
-import styles from "../styles/AboutMe.module.scss"
+import UserIcon1 from "../assets/images/UserIcon1.svg"
 
 export default function AboutMe() {
   // prettier-ignore
   const shortAbout = (
-    <div className="aboutme__body">
+    <div className="text-lg">
       <p>
         I am a Computer Science student from University of Nottingham. I love{" "}
         <strong>learning</strong> new tech, <strong>building</strong> projects,
@@ -19,22 +18,20 @@ export default function AboutMe() {
   )
 
   return (
-    <Segment as={"segment"} className={styles.aboutme} basic>
-      <Grid columns={2} stackable>
-        <Grid.Row verticalAlign="middle">
-          <Grid.Column textAlign="center">
-            <UserIcon className={styles.aboutme__img} />
-          </Grid.Column>
-          <Grid.Column>
-            <div className={styles.aboutme__right}>
-              {/* <button className="active">Short About Me</button>
-                  <button className="">Long About Me</button> */}
-              <h1 className={styles.aboutme__title}>{"Hi, I'm Jack"}</h1>
-              {shortAbout}
-            </div>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
+    <>
+      <div className="container flex flex-col items-center justify-center p-10 md:flex-row">
+        <Image
+          src={UserIcon1}
+          alt="Picture of author"
+          width={150}
+          height={150}
+          className="md:h-w-52 m-10 md:w-52"
+        />
+        <div className="max-w-md md:ml-4 lg:ml-20">
+          <h1 className="mb-2 text-6xl">{"Hi, I'm Jack"}</h1>
+          {shortAbout}
+        </div>
+      </div>
+    </>
   )
 }

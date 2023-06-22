@@ -1,134 +1,92 @@
-import fs from "fs"
-import path from "path"
-
-import matter from "gray-matter"
 import Head from "next/head"
 import Link from "next/link"
-import { Container } from "semantic-ui-react"
 
-import BlogHeader from "../../components/BlogHeader"
-import { useDarkTheme } from "../../contexts/ThemeContext"
-import styles from "../../styles/Blogs.module.scss"
-
-type Props = {
-  blogs: Array<any>
-}
+import DarkThemeButton from "../../components/DarkThemeButton"
+import { ArrowLeftIcon } from "../../components/Icons"
+import { getBlogs, syncImages } from "../../lib/utilsServer"
+import { Blog, FrontMatter } from "../../models"
 
 type BlogCardProps = {
-  blogMeta: any
+  blogMeta: FrontMatter
 }
 
-function BlogCard({ blogMeta }: BlogCardProps) {
+function BlogCard(props: BlogCardProps) {
+  const {
+    blogMeta: { slug, title, created_at, excerpt },
+  } = props
+
   return (
     <>
-      <div className={styles.blogcard}>
-        <h3 className={styles.title}>
-          <Link href={`/blogs/${blogMeta.slug}`}>
-            {blogMeta.title}
-          </Link>
+      <div className="">
+        <h3 className="my-2 text-2xl font-bold text-primary">
+          <Link href={`/blogs/${slug}`}>{title}</Link>
         </h3>
-        <p className={styles.date}>{blogMeta.created_at}</p>
-        <p className={styles.excerpt}>{blogMeta.excerpt}</p>
+        <p className="text-sm">{created_at}</p>
+        <p className="text-lg">{excerpt}</p>
       </div>
     </>
   )
 }
 
-export default function Blogs(props: Props) {
-  const { blogs } = props
+type BlogProps = {
+  blogs: Blog[]
+}
 
-  if (Array.isArray(blogs)) {
-    blogs.sort((a, b) => {
-      if (a.frontmatter.created_at < b.frontmatter.created_at) {
-        return 1
-      } else if (a.frontmatter.created_at > b.frontmatter.created_at) {
-        return -1
-      } else {
-        return 0
-      }
-    })
-  }
-
-  const isDarkTheme = useDarkTheme()
-
-  const pageStyles = `${styles.page} ${isDarkTheme && styles.dark}`
+export default function Blogs({ blogs }: BlogProps) {
+  blogs.sort((a, b) => {
+    if (a.frontmatter.created_at < b.frontmatter.created_at) {
+      return 1
+    } else if (a.frontmatter.created_at > b.frontmatter.created_at) {
+      return -1
+    } else {
+      return 0
+    }
+  })
 
   return (
     <>
       <Head>
         <title>Blogs by PKLJack</title>
-        <meta name="description" content="Personal blog by PKLJack. I learn, I build, I share." />
+        <meta
+          name="description"
+          content="Personal blog by PKLJack. I learn, I build, I share."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icons/favicon.ico" />
       </Head>
-      <div className={pageStyles}>
-        <Container>
-          <BlogHeader />
-          <h1 className={styles.page_title}>Blogs</h1>
-          {blogs.map((b, i) => {
-            return <BlogCard key={i} blogMeta={b.frontmatter} />
-          })}
-        </Container>
+      <div className="min-h-screen bg-stone-100 dark:bg-stone-900 dark:text-slate-200">
+        <div className="container px-6">
+          {/* Header */}
+          <header className="flex items-center justify-between">
+            <h1 className="py-6 text-6xl font-bold text-primary">Blogs</h1>
+            <DarkThemeButton />
+          </header>
+
+          {/* Back button */}
+          <Link
+            href={"/"}
+            className="mb-2 flex items-center gap-1 text-primary"
+          >
+            <ArrowLeftIcon />
+            Projects
+          </Link>
+
+          {/* Cards */}
+          <div className="flex flex-col gap-4">
+            {blogs.map((b, i) => {
+              return <BlogCard key={i} blogMeta={b.frontmatter} />
+            })}
+          </div>
+        </div>
       </div>
     </>
   )
 }
 
 export async function getStaticProps() {
-  const blogsDir = path.resolve(process.env.NEXT_PUBLIC_BLOG_DIR as string)
+  syncImages()
 
-  /* 
-    Copy images directory 
-  */
-  const localImagesDir = path.join(blogsDir, "images", "blogs") // need "blogs" for namespacing
-  const publicImagesDir = path.resolve("public", "images", "blogs")
+  const blogs = getBlogs()
 
-  if (!fs.existsSync(localImagesDir)) {
-    throw new Error(`Images Directory Not Found: ${localImagesDir}`)
-  }
-
-  const localImages = fs.readdirSync(localImagesDir)
-  const publicImages = fs.readdirSync(publicImagesDir)
-
-  const newImages = localImages.filter((value) => !publicImages.includes(value))
-  console.log("New Images to copy:")
-  console.table(newImages)
-
-  newImages.forEach((filename) => {
-    console.log(`Copying ${filename}`)
-    const srcFile = path.join(localImagesDir, filename)
-    const destFile = path.join(publicImagesDir, filename)
-    console.log(`${srcFile} => \n  ${destFile}`)
-    fs.copyFileSync(srcFile, destFile)
-  })
-
-  /* 
-    Parse Markdown files 
-  */
-  const fileNames = fs.readdirSync(blogsDir)
-  // console.log(fileNames)
-
-  const blogs = fileNames
-    .filter((filename) => path.extname(filename) == ".md")
-    .map((fp) => {
-      const markdownWithMeta = fs.readFileSync(path.join(blogsDir, fp), "utf-8")
-      const { data: frontmatter, content } = matter(markdownWithMeta)
-
-      for (const key of ["created_at", "updated_at"]) {
-        const [year, month, day] = frontmatter[key].split("-")
-        frontmatter[`${key}_year`] = year
-        frontmatter[`${key}_month`] = month
-        frontmatter[`${key}_day`] = day
-      }
-
-      return {
-        frontmatter: frontmatter,
-      }
-    })
-
-  return {
-    props: {
-      blogs: blogs,
-    },
-  }
+  return { props: { blogs } }
 }

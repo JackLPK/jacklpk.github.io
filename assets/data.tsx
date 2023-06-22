@@ -2,11 +2,6 @@ import React from "react"
 
 import { CardData } from "../models"
 
-/* 
-  Note:
-  wrap description in <p></p>
-*/
-
 // prettier-ignore
 const data: CardData[] = [
   {
@@ -120,8 +115,6 @@ const data: CardData[] = [
   },
 ]
 
-function fetchProjectCardsData() {
+export function fetchProjectCardsData() {
   return data
 }
-
-export { fetchProjectCardsData }
