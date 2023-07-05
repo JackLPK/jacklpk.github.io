@@ -75,7 +75,7 @@ export default function Blog(props: BlogType) {
             <BackButton />
             <DarkThemeButton />
           </div>
-          <article className="">
+          <article className="mb-8">
             <h1 className="pb-10 text-6xl font-bold text-primary">{title}</h1>
             {/* Meta */}
             <div>Posted on: {created_at}</div>
